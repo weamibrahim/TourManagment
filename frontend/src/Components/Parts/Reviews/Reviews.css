@@ -1,0 +1,56 @@
+import React, { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import './Tours.css';
+
+function Tours() {
+    const [tours, setTours] = useState([]);
+    const [page, setPage] = useState(1);
+    const limit = 6;
+
+    useEffect(() => {
+        fetch(`http://localhost:7000/api/tour/tours?page=${page}&limit=${limit}`)
+            .then(res => res.json())
+            .then(data => {
+                setTours(data);
+            })
+            .catch(err => console.error('Error fetching tours:', err));
+    }, [page]);
+
+    const handleNextPage = () => {
+        setPage(prevPage => prevPage + 1);
+    };
+
+    const handlePrevPage = () => {
+        setPage(prevPage => Math.max(prevPage - 1, 1));
+    };
+
+    return (
+        <div className='container'>
+            <div className="row row-cols-1 row-cols-md-3 g-4">
+                {tours.map((tour) => (
+                    <div className="col" key={tour._id}>
+                        <div className="card">
+                            <img src={tour.photo || "default_image_url_here"} className="card-img-top" alt={tour.title} />
+                            <div className="card-body">
+                                <h5 className="card-title">{tour.title}</h5>
+                                <p className="card-text">{tour.desc}</p>
+                                <NavLink to={`/tours/${tour._id}`} className="btn btn-primary">Details</NavLink>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+            <div className="d-flex justify-content-between my-4">
+                <button className="btn btn-secondary" onClick={handlePrevPage} disabled={page === 1}>
+                    Previous
+                </button>
+                <span>Page {page}</span>
+                <button className="btn btn-secondary" onClick={handleNextPage}>
+                    Next
+                </button>
+            </div>
+        </div>
+    );
+}
+
+export default Tours;
