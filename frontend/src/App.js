@@ -12,17 +12,40 @@ import ResultOfSearch from './Components/Pages/ResultOfSearch/ResultOfSearch';
 import Checkout from './Components/Pages/Checkout/Checkout';
 import Profile from './Components/Pages/Profile/profile';
 import UpdateProfile from './Components/Pages/UpdateProfile/UpdateProfile';
+import Dashboard from './Components/Pages/Dashboard/Dashboard';
+import AllTour from './Components/Pages/Dashboard/Tours/AllTour/AllTour';
+import CreateTour from './Components/Pages/Dashboard/Tours/CreateTour/CreateTour';
+import UpdateTour from './Components/Pages/Dashboard/Tours/UpdateTour/UpdateTour';
+import AllReviews from './Components/Pages/Dashboard/Reviews/AllReview/AllReview';
+import AllUser from './Components/Pages/Dashboard/Users/AllUser/AllUser';
+import NotFound from './Components/Pages/NotFound/NotFound';
 
 //import { useState ,useEffect} from "react";
 
 function App() {
   const loggedIn = localStorage.getItem('accessToken') !== null;
+  const UserDate= JSON.parse(localStorage.getItem('user'));
+  const userRole= UserDate ? UserDate.role : null;
+  const isAdmin = userRole === "admin";
   return (
     <div className="App">
       <BrowserRouter>
 <Header/>
         <Routes>
         
+        {isAdmin?(
+  <>
+          <Route path="/dashboard" element={loggedIn ? <Dashboard />: <Navigate to="/login" />} />
+          <Route path="/dashboard/tours" element={loggedIn ? <AllTour />: <Navigate to="/login" />} />
+          <Route path="/dashboard/tours/create" element={loggedIn ? <CreateTour />: <Navigate to="/login" />} />
+          <Route path="/dashboard/tours/update/:id" element={loggedIn ? <UpdateTour />: <Navigate to="/login" />} />
+          <Route path="/dashboard/reviews" element={loggedIn ? <AllReviews />: <Navigate to="/login" />} />
+          <Route path="/dashboard/users" element={loggedIn ? <AllUser />: <Navigate to="/login" />} />
+          
+          </>
+):(
+  <Route path ="*" element={<NotFound />} />
+)}
           <Route path="/" element={<Home />} />
           <Route path="/tours" element={<Tours />} />
           <Route path="/tours/:id" element={loggedIn ? <TourDetails />: <Navigate to="/login" />} />
@@ -32,6 +55,9 @@ function App() {
          <Route path="/profile" element={<Profile />} />
           <Route path="/updateprofile" element={<UpdateProfile />} />
           <Route path="/checkout" element={<Checkout />} />
+
+          <Route path ="*" element={<NotFound />} />
+
 
          
         </Routes>

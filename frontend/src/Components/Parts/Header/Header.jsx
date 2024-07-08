@@ -34,12 +34,16 @@ const Islogin = localStorage.getItem('accessToken');
         </li>
         {Islogin?(
           <>
+          <li className="nav-item">
+          <NavLink to="/dashboard" className="nav-link" >Dashboard</NavLink>
+      </li>
            <li className="nav-item">
           <NavLink to="/profile" className="nav-link" ><IoPersonOutline  className="fs-5"/></NavLink>
       </li>
            <li className="nav-item">
            <button className="nav-link" onClick={handleLogout}><IoIosLogOut className="fs-4" /></button>
        </li>
+       
       
        </>
         ):(

@@ -5,7 +5,9 @@ const ReviewController ={}
 ReviewController.GetAllReview= async (req, res, next) => {
 
 try{
-const Reviews=Review.find()
+  
+const Reviews= await Review.find().populate('userID')
+console.log(Reviews)
 
 return res.status(200).json(Reviews);
 

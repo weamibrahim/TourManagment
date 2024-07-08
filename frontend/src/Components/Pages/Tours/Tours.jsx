@@ -37,7 +37,7 @@ function Tours() {
                         <div className="col">
                             <div className="card">
                                 {/* <img src="..." className="card-img-top" alt="..." /> */}
-                                <img className='img-fluid rounded-4 card-img-top' src="https://img.freepik.com/free-photo/blue-villa-beautiful-sea-hotel_1203-5316.jpg?t=st=1719256012~exp=1719259612~hmac=37e68eb59df89cdb18cebf73990c9b9ab316b58e5222f7a1020683c26f3d1c5e&w=1060" />
+                                <img className='img-fluid rounded-4 card-img-top' src={'http://localhost:7000/images/' + tour.photo}  />
                                 <div className="card-body">
                                     <h4>   <CiLocationOn className="fs-4 text-warning " /><span className='ms-1'>{tour.city}</span></h4>
                                     <h5 className="card-title">{tour.title}</h5>
