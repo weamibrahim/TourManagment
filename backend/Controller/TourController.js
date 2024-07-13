@@ -28,7 +28,7 @@ TourController.SearchTour= async (req, res, next) => {
     try{
         const tours =await Tour.find({
             city,
-            price: {$gte: price},
+            price: {$lte: price},
             maxGroupSize: {$gte: maxGroupSize}
         })
         return res.status(200).json(tours);

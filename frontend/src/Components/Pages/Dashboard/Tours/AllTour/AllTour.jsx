@@ -2,6 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async';
 import { useEffect, useState } from 'react'
+import SideBar from '../../SideBar/SideBar';
 function AllTour() {
   const [page, setPage] = useState(1)
   const [tours, setTours] = useState([])
@@ -33,7 +34,8 @@ function AllTour() {
             
     }
   return (
-    <>
+    <div className='d-flex justify-content-around'>
+    <SideBar/>
      <Helmet>
             <title>All Tour</title>
         </Helmet>
@@ -42,7 +44,8 @@ function AllTour() {
         <NavLink className="text-white text-decoration-none" to="/dashboard/tours/create">Create
         </NavLink>
         </button>
-<table className='table table-responsive'>
+        <div className="table-responsive">
+<table className='table'>
 
 <thead>
 <tr>
@@ -74,6 +77,7 @@ function AllTour() {
 ))}
 
 </table>
+</div>
 
 
     <div className="d-flex justify-content-between my-4">
@@ -86,7 +90,7 @@ function AllTour() {
                 </button>
             </div>
     </div>
-    </>
+    </div>
   )
 }
 

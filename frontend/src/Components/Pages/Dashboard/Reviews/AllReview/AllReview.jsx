@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { MdOutlineStar } from "react-icons/md";
-
+import SideBar from '../../SideBar/SideBar';
 function AllReview() {
   const [reviews, setReviews] = useState([])
 
@@ -31,7 +31,10 @@ function AllReview() {
       .then(res => res.json())
   }
   return (
-    <div>
+    <div className='d-flex justify-content-around'>
+    <SideBar/>
+    <div className='container'>
+      <div className="table-responsive">
       <table className="table">
         <thead>
           <tr>
@@ -58,7 +61,8 @@ function AllReview() {
           }
         </tbody>
       </table>
-
+</div>
+    </div>
     </div>
   )
 }

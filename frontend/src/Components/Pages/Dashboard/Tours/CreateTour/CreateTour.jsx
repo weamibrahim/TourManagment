@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
+import SideBar from '../../SideBar/SideBar';
 function CreateTour() {
   const navigate = useNavigate();
   
   const [inputs, setInputs] = useState({
-    title: "",
-    city: "",
-    address: "",
-    desc: "",
-    price: "",
-    distance: "",
-    maxGroupSize: "",
-    photo: null // Initialize as null for the file
+    title: "Sunset Boulevard Tour",
+    city: "Los Angeles",
+    address: "123 Hollywood Blvd, Los Angeles, CA 90028",
+    distance: 15.5,
+   
+    desc: "Experience the beauty of Sunset Boulevard at dusk with this guided tour.",
+    price: 50,
+    maxGroupSize: 20,
+    reviews: [],
+    photo: "photo_1720884942739.jpg" // Initialize as null for the file
   });
 
   const handleChange = (e) => {
@@ -60,7 +62,8 @@ function CreateTour() {
   };
 
   return (
-    <div>
+    <div className='d-flex justify-content-around'>
+    <SideBar/>
       <form className='form'>
         <h1>Create Tour</h1>
         <div>

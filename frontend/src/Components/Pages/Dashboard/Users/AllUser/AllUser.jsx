@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState , useEffect } from 'react'
+import SideBar from '../../SideBar/SideBar';
 function AllUser() {
     const [users, setUsers] = useState([])
 
@@ -31,8 +32,12 @@ function AllUser() {
         })
     }
   return (
-    <div>
-        <table className="table">
+  
+    <div className='d-flex justify-content-around'>
+    <SideBar/>
+    <div className='container'>
+      <div className="table-responsive">
+       <table className='table'>
             <thead>
                 <tr>
                     <th>Id</th>
@@ -56,6 +61,8 @@ function AllUser() {
                 ))}
             </tbody>
         </table>
+        </div>
+    </div>
     </div>
   )
 }

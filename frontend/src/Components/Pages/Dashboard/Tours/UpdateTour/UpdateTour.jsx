@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
-
+import SideBar from '../../SideBar/SideBar';
 function UpdateTour() {
   const navigate = useNavigate();
   const { id } = useParams(); // Get the tour ID from the URL parameters
@@ -83,7 +83,8 @@ console.log("formData",formData)
   };
 
   return (
-    <div>
+    <div className='d-flex justify-content-around'>
+    <SideBar/>
       <form className='form'>
         <h1>Update Tour</h1>
         <div>
