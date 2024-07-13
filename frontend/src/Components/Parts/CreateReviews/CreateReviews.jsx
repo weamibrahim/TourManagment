@@ -9,7 +9,7 @@ const CreateReviews = ({ tourId }) => {
     const handleSubmit = (e) => {
         const accessToken =JSON.parse(localStorage.getItem("accessToken"));
         e.preventDefault();
-        fetch(`http://localhost:7000/api/review/create/${tourId}`, {
+        fetch(`https://tour-managment-three.vercel.app/api/review/create/${tourId}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

@@ -5,7 +5,7 @@ function AllUser() {
     const [users, setUsers] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:7000/api/users/alluser', {
+        fetch('https://tour-managment-three.vercel.app/api/users/alluser', {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -19,7 +19,7 @@ function AllUser() {
     }, [])
     const handleDelete = (id) => {
 
-        fetch(`http://localhost:7000/api/users/delete/${id}`, {
+        fetch(`https://tour-managment-three.vercel.app/api/users/delete/${id}`, {
 
             method: 'DELETE',
 

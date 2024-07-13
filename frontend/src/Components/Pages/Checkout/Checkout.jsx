@@ -8,7 +8,7 @@ function Checkout({ data }) {
   const handleCheckout = async () => {
     try {
       const response = await fetch(
-        "http://localhost:7000/api/stripe/create-checkout-session", {
+        "https://tour-managment-three.vercel.app/api/stripe/create-checkout-session", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

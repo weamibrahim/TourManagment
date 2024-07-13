@@ -7,7 +7,7 @@ function AllTour() {
   const [page, setPage] = useState(1)
   const [tours, setTours] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:7000/api/tour/tours?page=${page}`)
+        fetch(`https://tour-managment-three.vercel.app/api/tour/tours?page=${page}`)
             .then(res => res.json())
             .then(data => {
                 setTours(data)
@@ -21,7 +21,7 @@ function AllTour() {
     }
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:7000/api/tour/delete/${id}`, {
+        fetch(`https://tour-managment-three.vercel.app/api/tour/delete/${id}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -63,7 +63,7 @@ function AllTour() {
     <tbody key={tour._id}>
     <tr>
     <th scope="row">{index + 1}</th>
-    <td><img src={'http://localhost:7000/images/' + tour.photo} style={{width:"100px"}}/></td>
+    <td><img src={'https://tour-managment-three.vercel.app/images/' + tour.photo} style={{width:"100px"}}/></td>
     <td>{tour.title}</td>
     <td>{tour.price}</td>
     

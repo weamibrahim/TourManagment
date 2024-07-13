@@ -20,7 +20,7 @@ const validationSchema = Yup.object({
 const handleSubmit = async(values,{setSubmitting, setErrors}) =>{
     
     try {
-        const response = await fetch('http://localhost:7000/api/users/register', {
+        const response = await fetch('https://tour-managment-three.vercel.app/api/users/register', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

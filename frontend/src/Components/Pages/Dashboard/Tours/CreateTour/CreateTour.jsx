@@ -6,16 +6,14 @@ function CreateTour() {
   const navigate = useNavigate();
   
   const [inputs, setInputs] = useState({
-    title: "Sunset Boulevard Tour",
-    city: "Los Angeles",
-    address: "123 Hollywood Blvd, Los Angeles, CA 90028",
-    distance: 15.5,
-   
-    desc: "Experience the beauty of Sunset Boulevard at dusk with this guided tour.",
-    price: 50,
-    maxGroupSize: 20,
-    reviews: [],
-    photo: "photo_1720884942739.jpg" // Initialize as null for the file
+    title: "",
+    city: "",
+    address: "",
+    desc: "",
+    price: "",
+    distance: "",
+    maxGroupSize: "",
+    photo: null // Initialize as null for the file
   });
 
   const handleChange = (e) => {
@@ -38,7 +36,7 @@ function CreateTour() {
     });
 
     try {
-      await axios.post("http://localhost:7000/api/tour/create",formData,  {
+      await axios.post("https://tour-managment-three.vercel.app/api/tour/create",formData,  {
        
         headers: {
           'Content-Type': 'multipart/form-data',

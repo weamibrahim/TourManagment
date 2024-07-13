@@ -14,7 +14,7 @@ function ResultOfSearch() {
                     <div className="d-flex justify-content-center  resultSearch my-3">
                     <div className="col md-6    ">
                         <div className="card text-center ">
-                        <img src={'http://localhost:7000/images/' + tour.photo} className="card-img-top img-fluid" alt="..." />
+                        <img src={'https://tour-managment-three.vercel.app/images/' + tour.photo} className="card-img-top img-fluid" alt="..." />
                                 <div className="card-body">
                                     <h5 className="card-title">{tour.title}</h5>
                                     <p className="card-text">{tour.desc}</p>

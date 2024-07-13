@@ -20,7 +20,7 @@ function UpdateProfile() {
 
    const handleUpdate = (event) => {
         event.preventDefault();
-        fetch(`http://localhost:7000/api/users/update/${user._id}`, {
+        fetch(`https://tour-managment-three.vercel.app/api/users/update/${user._id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

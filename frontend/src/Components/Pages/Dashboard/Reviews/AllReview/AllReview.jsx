@@ -5,7 +5,7 @@ function AllReview() {
   const [reviews, setReviews] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:7000/api/review/Reviews'
+    fetch('https://tour-managment-three.vercel.app/api/review/Reviews'
     )
       .then(res => res.json())
       .then(data => {
@@ -16,7 +16,7 @@ function AllReview() {
   }, [])
   const handleDelete = (id) => {
 
-    fetch(`http://localhost:7000/api/review/delete/${id}`, {
+    fetch(`https://tour-managment-three.vercel.app/api/review/delete/${id}`, {
 
       method: 'DELETE',
 

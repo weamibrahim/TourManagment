@@ -24,7 +24,7 @@ const searchHandler = async() => {
         alert('All fields are required');
 }
 
-const res = await fetch(`http://localhost:7000/api/tour/search?city=${city}&distance=${price}&maxGroupSize=${maxGroup}`);
+const res = await fetch(`https://tour-managment-three.vercel.app/api/tour/search?city=${city}&distance=${price}&maxGroupSize=${maxGroup}`);
 const data = await res.json();
     navigate(`/search?city=${city}&distance=${price}&maxGroupSize=${maxGroup}`, {state: data});
 

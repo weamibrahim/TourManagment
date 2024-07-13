@@ -10,7 +10,7 @@ function Tours() {
 
     const [tours, setTours] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:7000/api/tour/tours?page=${page}`)
+        fetch(`https://tour-managment-three.vercel.app/api/tour/tours?page=${page}`)
             .then(res => res.json())
             .then(data => {
                 setTours(data)
@@ -37,7 +37,7 @@ function Tours() {
                         <div className="col">
                             <div className="card">
                                 {/* <img src="..." className="card-img-top" alt="..." /> */}
-                                <img className='img-fluid rounded-4 card-img-top' src={'http://localhost:7000/images/' + tour.photo}  />
+                                <img className='img-fluid rounded-4 card-img-top' src={'https://tour-managment-three.vercel.app/images/' + tour.photo}  />
                                 <div className="card-body">
                                     <h4>   <CiLocationOn className="fs-4 text-warning " /><span className='ms-1'>{tour.city}</span></h4>
                                     <h5 className="card-title">{tour.title}</h5>

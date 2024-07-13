@@ -38,7 +38,7 @@ function Booking({ dataOfTour }) {
            
         };
         event.preventDefault();
-        fetch(`http://localhost:7000/api/booking/create/${tour._id}`, {
+        fetch(`https://tour-managment-three.vercel.app/api/booking/create/${tour._id}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

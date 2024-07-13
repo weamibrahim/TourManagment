@@ -21,7 +21,7 @@ function UpdateTour() {
     // Fetch the existing tour data
     const fetchTour = async () => {
       try {
-        const res = await axios.get(`http://localhost:7000/api/tour/tour/${id}`);
+        const res = await axios.get(`https://tour-managment-three.vercel.app/api/tour/tour/${id}`);
         const tour = res.data;
         setInputs({
           title: tour.title,
@@ -66,7 +66,7 @@ function UpdateTour() {
     }
 console.log("formData",formData)
     try {
-      await axios.put(`http://localhost:7000/api/tour/update/${id}`, formData, {
+      await axios.put(`https://tour-managment-three.vercel.app/api/tour/update/${id}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'Authorization': `Bearer ${accessToken}`
