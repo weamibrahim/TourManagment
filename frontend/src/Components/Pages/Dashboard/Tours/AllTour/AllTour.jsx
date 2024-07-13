@@ -63,7 +63,7 @@ function AllTour() {
     <tbody key={tour._id}>
     <tr>
     <th scope="row">{index + 1}</th>
-    <td><img src={`https://tour-managment-three.vercel.app/images/${tour.photo}`} style={{width:"100px"}}/></td>
+    <td><img src={'https://tour-managment-three.vercel.app/images/'+tour.photo} style={{width:"100px"}}/></td>
     <td>{tour.title}</td>
     <td>{tour.price}</td>
     
