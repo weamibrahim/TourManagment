@@ -8,6 +8,7 @@ const tourRoutes= require("./Routes/TourRoutes")
 const ReviewRoutes= require("./Routes/ReviewRoutes")
 const BookingRoutes= require("./Routes/BookingRoutes")
 const StripeRoutes=require("./Routes/StripeRoutes")
+const path = require("path");
 // Load environment variables from .env file
 require("dotenv").config();
 
@@ -19,8 +20,8 @@ const mongoURI = process.env.MONGO_URI;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'))
-app.use('/images', express.static('public/images'));
 
+app.use('/images', express.static(path.join(__dirname, 'public/images')));
 // important for connect front with back should come before routes
 app.use(cors()); // Enable CORS
 
