@@ -19,6 +19,7 @@ const mongoURI = process.env.MONGO_URI;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'))
+app.use('/images', express.static('public/images'));
 
 // important for connect front with back should come before routes
 app.use(cors()); // Enable CORS
