@@ -48,9 +48,9 @@ function AllUser() {
                 </tr>
             </thead>
             <tbody>
-                {users.map((user) => (
+                {users.map((user, index) => (
                     <tr key={user._id}>
-                        <td>{user._id}</td>
+                        <td>{index + 1}</td>
                         <td>{user.name}</td>
                         <td>{user.email}</td>
                         <td>{user.role === "admin" ? "Yes" : "No"}</td>
