@@ -35,8 +35,8 @@ function Tours() {
                     return (
 
                         <div className="col">
-                            <div className="card">
-                                {/* <img src="..." className="card-img-top" alt="..." /> */}
+                            <div className="card rounded-top-4">
+                               
                                 <img className='img-fluid rounded-4 card-img-top' src={'https://tour-managment-three.vercel.app/images/' + tour.photo}  />
                                 <div className="card-body">
                                     <h4>   <CiLocationOn className="fs-4 text-warning " /><span className='ms-1'>{tour.city}</span></h4>

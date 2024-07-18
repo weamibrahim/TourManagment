@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState , useEffect } from 'react'
 import SideBar from '../../SideBar/SideBar';
+import { MdDelete } from "react-icons/md";
 function AllUser() {
     const [users, setUsers] = useState([])
 
@@ -55,7 +56,7 @@ function AllUser() {
                         <td>{user.email}</td>
                         <td>{user.role === "admin" ? "Yes" : "No"}</td>
                         <td>
-                            <button className="btn btn-danger" onClick={() => handleDelete(user._id)}> Delete</button>
+                            <button className="btn btn-danger" onClick={() => handleDelete(user._id)}> <MdDelete  className='fs-3'/></button>
                         </td>
                     </tr>
                 ))}

@@ -59,10 +59,16 @@ const handleSubmit = async(values,{setSubmitting, setErrors}) =>{
         <Helmet>
             <title>Register </title>
         </Helmet><div className='background'> 
-             <h1 className='text-center'>Register</h1>
-       <div className='d-flex justify-content-center my-5 form'>
+            
+       <div >
       
-
+       <div className='d-flex justify-content-center my-5 '>
+        <div className='row w-75 h-100 shadow p-3 mb-5 bg-body-tertiary rounded'>
+          <div className='col-md-6 p-0 rounded-start ' >
+            <img  src='https://img.freepik.com/free-vector/employees-cv-candidates-resume-corporate-workers-students-id-isolate-flat-design-element-job-applications-avatars-personal-information-concept-illustration_335657-1661.jpg?t=st=1721249629~exp=1721253229~hmac=9f7baf397b4d47b93e048ad1e41552d8c46a8d02eb356fa7aa739f7e4d79faeb&w=740' className='img-fluid rounded-start '/></div>
+          <div className='col-md-6 login d-flex flex-column justify-content-center align-items-center rounded-end ' >
+          
+          <h1 className='text-center my-2' style={{  fontFamily: "Sofia"}}>Register</h1>
 
 <Formik
     initialValues={{ name: '', email: '', password: '' }}
@@ -78,7 +84,7 @@ const handleSubmit = async(values,{setSubmitting, setErrors}) =>{
        </div>
 
             <div className="mb-3">
-                <label htmlFor="email" className="form-label">Email address</label>
+                <label htmlFor="email" className="form-label">Email </label>
                 <Field type="email" className="form-control" id="email" name="email" />
                 <ErrorMessage name="email" component="div" className="alert alert-danger" />
             </div>
@@ -96,7 +102,9 @@ const handleSubmit = async(values,{setSubmitting, setErrors}) =>{
         </Form>
     )}
 </Formik>
-
+</div>
+</div>
+</div>
 </div>
         
     </div>

@@ -3,6 +3,7 @@ const Tour = require('../Models/Tour')
 
 const TourController ={}
 
+
 TourController.GetAllTour= async (req, res, next) => {
 
 try{
@@ -20,6 +21,8 @@ catch(err) {
   }
 
 }
+
+
 
 TourController.SearchTour= async (req, res, next) => {
     const city = req.query.city

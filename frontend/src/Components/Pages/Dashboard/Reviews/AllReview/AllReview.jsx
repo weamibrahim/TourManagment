@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { MdOutlineStar } from "react-icons/md";
 import SideBar from '../../SideBar/SideBar';
+import { MdDelete } from "react-icons/md";
 function AllReview() {
   const [reviews, setReviews] = useState([])
 
@@ -56,7 +57,7 @@ function AllReview() {
               <td className='fs-4'>{review.Rating}
 <span><MdOutlineStar  className='text-warning '/></span>
               </td>
-              <td><button className="btn btn-danger" onClick={() => handleDelete(review._id)}>Delete</button></td>
+              <td><button className="btn btn-danger" onClick={() => handleDelete(review._id)}><MdDelete className='fs-3' /></button></td>
             </tr>)
           }
         </tbody>

@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async';
 import { useEffect, useState } from 'react'
 import SideBar from '../../SideBar/SideBar';
+import { MdDelete } from "react-icons/md";
+import { FaRegEdit } from "react-icons/fa";
 function AllTour() {
   const [page, setPage] = useState(1)
   const [tours, setTours] = useState([])
@@ -63,12 +65,12 @@ function AllTour() {
     <tbody key={tour._id}>
     <tr>
     <th scope="row">{index + 1}</th>
-    <td><img src={'https://tour-managment-three.vercel.app/images/'+tour.photo} style={{width:"100px"}}/></td>
+    <td><img src={'https://tour-managment-three.vercel.app/images/'+ tour.photo} style={{width:"100px"}}/></td>
     <td>{tour.title}</td>
-    <td>{tour.price}</td>
+    <td>${tour.price}</td>
     
-    <td><NavLink to={`/dashboard/tours/update/${tour._id}`} className="btn btn-primary">Update</NavLink>
-    <button className="btn btn-danger mx-3" onClick={() => handleDelete(tour._id)}>Delete</button>
+    <td><NavLink to={`/dashboard/tours/update/${tour._id}`} className="btn btn-primary"><FaRegEdit className='fs-3' /></NavLink>
+    <button className="btn btn-danger mx-3" onClick={() => handleDelete(tour._id)}><MdDelete  className='fs-3'/></button>
     </td>
 
     </tr>

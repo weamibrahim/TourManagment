@@ -2,7 +2,7 @@ import {NavLink} from "react-router-dom"
 import { LuPlane } from "react-icons/lu";
 import { IoIosLogOut } from "react-icons/io";
 import { IoIosHome } from "react-icons/io";
-import { IoPersonOutline } from "react-icons/io5";
+import { IoPersonSharp } from "react-icons/io5";
 import { MdDashboard } from "react-icons/md";
 import { GiJourney } from "react-icons/gi";
 import "./Header.css"
@@ -29,7 +29,7 @@ const isAdmin = userRole === "admin";
         <div >
         <LuPlane className="fs-2" />
         </div>
-      <ul className="navbar-nav ms-auto mb-2 mb-lg-0 ">
+      <ul className="navbar-nav ms-auto mb-2 mb-lg-0 " style={{  fontFamily: "Sofia"}}>
         <li className="nav-item">
           
           <NavLink to="/" className="nav-link active" aria-current="page" ><IoIosHome  className="fs-4 mx-2 "/>Home</NavLink>
@@ -47,7 +47,7 @@ const isAdmin = userRole === "admin";
           <NavLink to="/dashboard" className="nav-link" > <MdDashboard  className="fs-4 mx-1"/>Dashboard</NavLink>
       </li>
       <li className="nav-item">
-          <NavLink to="/profile" className="nav-link" ><IoPersonOutline  className="fs-5"/></NavLink>
+          <NavLink to="/profile" className="nav-link" ><IoPersonSharp  className="fs-4 mx-1"/> Profile</NavLink>
       </li>
            <li className="nav-item">
            <button className="nav-link" onClick={handleLogout}><IoIosLogOut className="fs-4" /></button>
@@ -56,7 +56,7 @@ const isAdmin = userRole === "admin";
           ):(
 <>
 <li className="nav-item">
-          <NavLink to="/profile" className="nav-link" ><IoPersonOutline  className="fs-5"/></NavLink>
+          <NavLink to="/profile" className="nav-link" ><IoPersonSharp  className="fs-4 mx-1"/> Profile</NavLink>
       </li>
            <li className="nav-item">
            <button className="nav-link" onClick={handleLogout}><IoIosLogOut className="fs-4" /></button>

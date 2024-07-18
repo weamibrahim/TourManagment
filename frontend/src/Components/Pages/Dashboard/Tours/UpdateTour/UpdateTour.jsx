@@ -83,9 +83,9 @@ console.log("formData",formData)
   };
 
   return (
-    <div className='d-flex justify-content-around'>
+    <div className='d-flex '>
     <SideBar/>
-      <form className='form'>
+      <form className='form m-auto'>
         <h1>Update Tour</h1>
         <div>
           <label className='form-label'>Photo</label>

@@ -32,7 +32,7 @@ function TourDetails() {
         <div className="container">
             <div className="row">
                 <div className="col-md-7 my-4 ">
-                    <div className="card">
+                    <div className="card rounded-top-4">
                         <img className='img-fluid rounded-4 card-img-top'  src={'https://tour-managment-three.vercel.app/images/' + tour.photo}  />
                         <div className="card-body">
                             <h2>{tour.title}</h2>
