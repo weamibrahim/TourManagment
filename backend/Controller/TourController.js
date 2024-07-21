@@ -8,7 +8,7 @@ TourController.GetAllTour= async (req, res, next) => {
 
 try{
     const page = parseInt(req.query.page) || 1;
-    const limit = 9
+    const limit = 6
     const startIndex = (page - 1) * limit;
 const Tours =await Tour.find().skip(startIndex).limit(limit);
 
