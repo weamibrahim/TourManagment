@@ -17,7 +17,7 @@ const isAdmin = userRole === "admin";
     window.location.reload();
   }
     return (
-        <div>
+        <div >
             <div className="header"></div>
            <nav className="navbar navbar-expand-lg bg-body-tertiary">
   <div className="container-fluid">
@@ -28,6 +28,7 @@ const isAdmin = userRole === "admin";
     <div className="collapse navbar-collapse container" id="navbarSupportedContent">
         <div >
         <LuPlane className="fs-2" />
+        <span className=" fs-3 mx-2" style={{  fontFamily: "Sofia"}}> TravelTrails</span>
         </div>
       <ul className="navbar-nav ms-auto mb-2 mb-lg-0 " style={{  fontFamily: "Sofia"}}>
         <li className="nav-item">

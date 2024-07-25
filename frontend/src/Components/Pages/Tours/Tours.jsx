@@ -28,8 +28,18 @@ function Tours() {
         <Helmet>
             <title>Tours</title>
         </Helmet>
-        <div className='container'>
-            <Search />
+        <div className="imageSlide">
+      <div className="centered-text d-flex justify-content-center align-items-center">
+        Explore the world
+      </div>
+      <div className="search-bottom-center">
+        <Search />
+      </div>
+    </div>
+
+
+        <div className='container my-5'>
+            
             <div className="row row-cols-1 row-cols-md-3 g-4">
                 {tours.map((tour) => {
                     return (
@@ -69,7 +79,9 @@ function Tours() {
                     Next
                 </button>
             </div>
+           
         </div>
+
         </>
     )
 }

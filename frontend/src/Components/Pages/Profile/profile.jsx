@@ -11,7 +11,7 @@ function profile() {
         <Helmet>
             <title>Profile</title>
         </Helmet>
-    <div className="pt-4 area" style={{ textAlign: "center", height: "1000px " }}>
+    <div className="pt-4 " style={{ textAlign: "center", height: "550px " }}>
     <div className="container " style={{ margin: " 0 auto", maxWidth: " 600px" }}>
 
         <div className="pic" >

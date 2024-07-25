@@ -1,19 +1,24 @@
 import './Home.css';
 import Search from '../../Parts/Search/Search';
 import { Helmet } from 'react-helmet-async';
+import { AiFillSafetyCertificate } from "react-icons/ai";
+import { MdOutlinePriceChange } from "react-icons/md";
+import { CgViewComfortable } from "react-icons/cg";
+import SwiperSlides from '../../Parts/Swiper/Swiper';
 function Home() {
     return (
         <>
         <Helmet>
             <title>Home</title>
         </Helmet>
-        <div className="container">
-            <div className="row my-4 ">
+        <div className="container my-5 ">
+         
+            <div className="row m-3 bg-body-tertiary p-5 rounded-5 ">
                 <div className="col-md-6  ">
-                    <h1  style={{  fontFamily: "Sofia"}}>Enjoy your your     Tour</h1>
-              <p className='my-3'> Lorem Ipsum is simply 
-                dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                 galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    <h2  style={{  fontFamily: "Sofia"}}>Explore the world <span className='text-warning'> with us! </span></h2>
+              <p className='my-5'> Discover breathtaking destinations,
+                 unique experiences and unforgettable adventures,
+                 Book your perfect tour with ease and embark on an unforgettable journey.
               </p>  </div>
                 <div className="col-md-6  ms-auto">
                     <div className="row">
@@ -34,46 +39,60 @@ function Home() {
                 </div>
             </div>
             <Search/>
+          
             <div>
                 <h1 style={{  fontFamily: "Sofia"}}>Gallery</h1>
+<SwiperSlides/>
+                <div className='row m-3'>
+  <div className='col-md-4 my-1' >
+    <img src='https://img.freepik.com/free-photo/sky-beautiful-vacation-ocean-house_1203-5310.jpg?t=st=1721687364~exp=1721690964~hmac=26bf9c28d583537338905228143835b0014458c03de6c7d45471ce891f29cb60&w=360' className='img-fluid  rounded-4'/>
+  </div>
 
-                <div className='row'>
-                <div className='col-md-3 my-3'>
-                        <img className='img-fluid imgHover rounded-4 ' src="https://img.freepik.com/free-photo/building-with-domes-turrets_1122-1137.jpg?ga=GA1.1.1070693569.1706463458&semt=ais_user"/>
-                    </div>
-                   
-                    <div className='col-md-3 my-3'>
-                        <img className='img-fluid imgHover rounded-4 ' src="https://img.freepik.com/free-photo/closeup-shot-male-standing-looking-giza-necropolis-egypt_181624-39408.jpg?t=st=1720886566~exp=1720890166~hmac=efdfcd99c10315c89bc87eb964c551d6ac2494709a2247cd6e1ff9be59319632&w=1060"/>
-                    </div>
-                    <div className='col-md-3 my-3'>
-                        <img className='img-fluid imgHover rounded-4' src="https://img.freepik.com/free-photo/closeup-shot-female-standing-front-medinet-habu-temple-egypt_181624-45877.jpg?ga=GA1.1.1070693569.1706463458&semt=ais_user"/>
-                    </div>
-                    <div className='col-md-3 my-3'>
-                        <img className='img-fluid imgHover rounded-4' src="https://img.freepik.com/free-photo/viewpoint-alabaster-mosque-blue-sky-cairo-egypt_181624-52492.jpg?ga=GA1.1.1070693569.1706463458&semt=ais_user"/>
-                    </div>
-                   
-                    <div className='col-md-3 my-3'>
-                        <img className='img-fluid imgHover rounded-4' src="https://img.freepik.com/free-photo/big-ben-house-parliament-night-london-united-kingdom_268835-1396.jpg?ga=GA1.1.1070693569.1706463458&semt=ais_user"/>
-                    </div>
-                      <div className='col-md-3 my-3 '>
-                        <img className='img-fluid imgHover rounded-4' src="https://img.freepik.com/free-photo/woman-standing-celsus-library-ephesus-ancient-city-izmir-turkey_335224-583.jpg?ga=GA1.1.1070693569.1706463458&semt=ais_user"/>
-                    </div>
-                    
-                    <div className='col-md-3 my-3'>
-                        <img className='img-fluid imgHover rounded-4' src="https://img.freepik.com/free-photo/woman-standing-theater-hierapolis-ancient-city-pamukkale-turkey_335224-619.jpg?ga=GA1.1.1070693569.1706463458&semt=ais_user"/>
-                    </div>
-                    <div className='col-md-3 my-3 '>
-                        <img className='img-fluid imgHover rounded-4' src="https://img.freepik.com/free-photo/young-man-walking-towards-great-sphinx-giza_181624-51674.jpg?ga=GA1.1.1070693569.1706463458&semt=ais_user"/>
-                    </div>
-                    <div className='col-md-3 my-3'>
-                        <img className='img-fluid imgHover rounded-4' src="https://img.freepik.com/free-photo/young-man-walking-egyptian-temple_181624-44493.jpg?ga=GA1.1.1070693569.1706463458&semt=ais_user"/>
-                    </div>
-                    <div className='col-md-3 my-3 '>
-                        <img className='img-fluid imgHover rounded-4' src="https://img.freepik.com/free-photo/wat-arun-temple-bangkok-thailand_335224-971.jpg?t=st=1719255529~exp=1719259129~hmac=1beb58d614b95e2715da1def17c01c113552e89b791b5f179d1d4e6845bf4110&w=1380"/>
-                    </div>
-                    
+  <div className='col-md-8' >
+    <div className='row mb-2'>
+      <div className='col-md-6 my-1'>
+        <img className='img-fluid  rounded-4' src="https://img.freepik.com/free-photo/3d-render-yacht-tropical-island_1048-5501.jpg?ga=GA1.1.1070693569.1706463458&semt=ais_user"/>
+      </div>
+      <div className='col-md-6 my-1'>
+        <img className='img-fluid  rounded-4' src="https://img.freepik.com/free-photo/aerial-view-lao-lading-island-krabi-thailand_335224-1184.jpg?t=st=1721687587~exp=1721691187~hmac=575b6d708fba15f3eb36b1d3fc5c6c143bbe877ee066e9047c821a247a08faca&w=1060"/>
+      </div>
+    </div>
+    <div className='row'>
+      <div className='col-12 my-1'>
+        <img className='img-fluid rounded-4' src="https://img.freepik.com/free-photo/wide-shot-kualoa-ranch-hawaii-usa_181624-11701.jpg?t=st=1721687950~exp=1721691550~hmac=cd9c36bf9e285199fccfbec159b98ec162c349ff79aa6fe1e96230257338665d&w=1060" style={{maxHeight: "270px", width: "100%"}} />
+      </div>
+    </div>
+</div>
+
+
+                
                 </div>
             </div>
+          
+                
+                <div className='row my-5 mx-3 bg-body-tertiary p-5 rounded-4'>
+                    <div className='col-md-4  ' >
+                        <h1>Experince  the new adventure</h1>
+                        <p>Explore the world with us! Discover breathtaking destinations, unique experiences and unforgettable adventures, Book your perfect tour with ease and embark on an unforgettable journe</p>
+                        <div ><AiFillSafetyCertificate className='fs-3 text-warning'/>
+                        <span className='fs-4 text-dark mx-2'>Safe Travelling</span>
+                        <p>Explore the world with us! Discover breathtaking destinations, </p>
+                        </div>
+                        <div ><MdOutlinePriceChange className='fs-3 text-warning' />
+                        <span className='fs-4 text-dark mx-2'>Affordable price</span>
+                        <p>Explore the world with us! Discover breathtaking des</p>
+                        </div>
+                        <div><CgViewComfortable className='fs-3 text-warning'/>
+                        <span className='fs-4 text-dark mx-2'>comfort accomndation</span>
+                        <p>Explore the world with us! Discover breathtaking destinations, unique experiences and unforgettable adventures,e</p>
+
+                        </div>
+                      </div>
+
+                      <div className='col-md-8'>
+                        <img src="https://img.freepik.com/free-photo/woman-walking-railay-beach-krabi-thailand_335224-1206.jpg?t=st=1721686134~exp=1721689734~hmac=873488df5e108cdbc09094dbda0658033e6f67e9f3608015c256dcc735275e56&w=1060" className='img-fluid rounded-4'/>    
+                      </div>
+           </div>
         </div>
         </>
     );

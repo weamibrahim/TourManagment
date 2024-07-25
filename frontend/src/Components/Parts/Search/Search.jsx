@@ -32,7 +32,7 @@ const data = await res.json();
 }
     return (
         <div className="container">
-            <h1 style={{  fontFamily: "Sofia"}}>Search</h1>
+      
             <div className="shadow p-3 mb-5 bg-body-tertiary rounded-5">
                 <div className="row g-3 align-items-center">
                     <div className="col-md-3 col-sm-6">

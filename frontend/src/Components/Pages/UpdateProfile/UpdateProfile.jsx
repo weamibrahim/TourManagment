@@ -40,7 +40,7 @@ function UpdateProfile() {
 
 
   return (
-    <div  className="container my-5"style={{ maxWidth: " 800px" }} >
+    <div  className="container my-5"style={{ maxWidth: " 800px" , height: "450px "}} >
         <div className=" justify-content-center align-items-center">
         <div className="row ">
         <div className="pb-5 col-lg-12 align-items-center justify-content-center " >
