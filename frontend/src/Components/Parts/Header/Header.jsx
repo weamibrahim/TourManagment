@@ -6,15 +6,17 @@ import { IoPersonSharp } from "react-icons/io5";
 import { MdDashboard } from "react-icons/md";
 import { GiJourney } from "react-icons/gi";
 import "./Header.css"
+import { useLogin } from "../../../Contexts/LoginContext";
 function Header() {
-const Islogin = localStorage.getItem('accessToken');
+
+  const {setIsLogin,IsLogin} = useLogin();
 const UserDate= JSON.parse(localStorage.getItem('user'));
 const userRole= UserDate ? UserDate.role : null;
 const isAdmin = userRole === "admin";
   const handleLogout = () => {
     localStorage.removeItem('accessToken');
     localStorage.removeItem('user');
-    window.location.reload();
+    setIsLogin(false);
   }
     return (
         <div >
@@ -38,7 +40,7 @@ const isAdmin = userRole === "admin";
         <li className="nav-item">
           <NavLink to="/tours" className="nav-link" ><GiJourney  className="fs-4 mx-2"/>Tours</NavLink>
         </li>
-        {Islogin?(
+        {IsLogin?(
           <>
          
           {isAdmin?(

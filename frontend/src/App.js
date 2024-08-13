@@ -19,7 +19,7 @@ import UpdateTour from './Components/Pages/Dashboard/Tours/UpdateTour/UpdateTour
 import AllReviews from './Components/Pages/Dashboard/Reviews/AllReview/AllReview';
 import AllUser from './Components/Pages/Dashboard/Users/AllUser/AllUser';
 import NotFound from './Components/Pages/NotFound/NotFound';
-
+import { LoginProvider } from './Contexts/LoginContext';
 //import { useState ,useEffect} from "react";
 
 function App() {
@@ -29,6 +29,7 @@ function App() {
   const isAdmin = userRole === "admin";
   return (
     <div className="App">
+      <LoginProvider>
       <BrowserRouter>
 <Header/>
         <Routes>
@@ -63,6 +64,7 @@ function App() {
         </Routes>
 <Footer/>
       </BrowserRouter>
+      </LoginProvider>
     </div>
   );
 }

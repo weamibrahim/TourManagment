@@ -3,9 +3,11 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { useLogin } from '../../../Contexts/LoginContext';
 
 const Login = () => {
   const navigate = useNavigate();
+  const {  setIsLogin } = useLogin();
 
   const validationSchema = Yup.object({
     email: Yup.string().email('Invalid email address').required('Required'),
@@ -27,6 +29,7 @@ const Login = () => {
         navigate('/');
         localStorage.setItem("accessToken", JSON.stringify(data.accessToken));
         localStorage.setItem("user", JSON.stringify(data.user));
+        setIsLogin(true);
       } else {
         setErrors({ serverError: data.message });
       }
