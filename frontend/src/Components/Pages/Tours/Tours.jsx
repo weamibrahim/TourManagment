@@ -5,6 +5,8 @@ import { NavLink } from 'react-router-dom'
 import Search from '../../Parts/Search/Search';
 import { CiLocationOn } from "react-icons/ci";
 import { Helmet } from 'react-helmet-async';
+import PageTransition from '../../Parts/Animation/PageTransition';
+
 function Tours() {
     const [page, setPage] = useState(1);
 
@@ -86,4 +88,4 @@ function Tours() {
     )
 }
 
-export default Tours
+export default PageTransition(Tours)

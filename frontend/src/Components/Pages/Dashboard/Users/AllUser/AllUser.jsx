@@ -2,6 +2,7 @@ import React from 'react'
 import { useState , useEffect } from 'react'
 import SideBar from '../../SideBar/SideBar';
 import { MdDelete } from "react-icons/md";
+import PageTransition from '../../../../Parts/Animation/PageTransition';
 function AllUser() {
     const [users, setUsers] = useState([])
 
@@ -68,4 +69,4 @@ function AllUser() {
   )
 }
 
-export default AllUser
+export default PageTransition(AllUser)

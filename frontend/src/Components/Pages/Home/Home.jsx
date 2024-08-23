@@ -5,6 +5,7 @@ import { AiFillSafetyCertificate } from "react-icons/ai";
 import { MdOutlinePriceChange } from "react-icons/md";
 import { CgViewComfortable } from "react-icons/cg";
 import SwiperSlides from '../../Parts/Swiper/Swiper';
+import PageTransition from '../../Parts/Animation/PageTransition';
 function Home() {
     return (
         <>
@@ -98,4 +99,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default PageTransition(Home);

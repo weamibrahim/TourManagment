@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PageTransition from '../../Parts/Animation/PageTransition';
 function Checkout({ data }) {
   console.log(data);
 
@@ -46,4 +46,4 @@ function Checkout({ data }) {
   );
 }
 
-export default Checkout;
+export default PageTransition(Checkout);

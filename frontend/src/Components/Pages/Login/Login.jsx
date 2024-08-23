@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useLogin } from '../../../Contexts/LoginContext';
-
+import PageTransition from '../../Parts/Animation/PageTransition';
 const Login = () => {
   const navigate = useNavigate();
   const {  setIsLogin } = useLogin();
@@ -88,4 +88,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default PageTransition(Login);

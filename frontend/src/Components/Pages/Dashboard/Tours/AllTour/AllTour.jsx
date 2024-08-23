@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import SideBar from '../../SideBar/SideBar';
 import { MdDelete } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
+import PageTransition from '../../../../Parts/Animation/PageTransition';
 function AllTour() {
   const [page, setPage] = useState(1)
   const [tours, setTours] = useState([])
@@ -96,4 +97,4 @@ function AllTour() {
   )
 }
 
-export default AllTour
+export default PageTransition(AllTour)

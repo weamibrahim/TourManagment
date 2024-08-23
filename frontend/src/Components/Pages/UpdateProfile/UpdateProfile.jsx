@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import PageTransition from '../../Parts/Animation/PageTransition';
 function UpdateProfile() {
     const navigate = useNavigate()
     let user=JSON.parse(localStorage.getItem("user"))
@@ -81,4 +82,4 @@ function UpdateProfile() {
   )
 }
 
-export default UpdateProfile
+export default PageTransition(UpdateProfile);

@@ -30,15 +30,12 @@ const isAdmin = userRole === "admin";
     <div className="collapse navbar-collapse container" id="navbarSupportedContent">
         <div >
         <LuPlane className="fs-2" />
-        <span className=" fs-3 mx-2" style={{  fontFamily: "Sofia"}}> TravelTrails</span>
+        <span className=" fs-3 mx-2" style={{  fontFamily: "Sofia"}}>  <NavLink to="/" className="text-decoration-none text-dark" aria-current="page" >TravelTrails</NavLink></span>
         </div>
-      <ul className="navbar-nav ms-auto mb-2 mb-lg-0 " style={{  fontFamily: "Sofia"}}>
+      <ul className="navbar-nav ms-auto mb-2 mb-lg-0 fs-4" style={{  fontFamily: "Sofia"}}>
+        
         <li className="nav-item">
-          
-          <NavLink to="/" className="nav-link active" aria-current="page" ><IoIosHome  className="fs-4 mx-2 "/>Home</NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink to="/tours" className="nav-link" ><GiJourney  className="fs-4 mx-2"/>Tours</NavLink>
+          <NavLink to="/tours" className="nav-link" ><GiJourney  className="fs-3 mx-2"/>Tours</NavLink>
         </li>
         {IsLogin?(
           <>

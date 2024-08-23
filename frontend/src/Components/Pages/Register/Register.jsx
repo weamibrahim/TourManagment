@@ -4,6 +4,7 @@ import {NavLink, useNavigate} from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import PageTransition from '../../Parts/Animation/PageTransition';
 function Register() {
 
 
@@ -112,4 +113,4 @@ const handleSubmit = async(values,{setSubmitting, setErrors}) =>{
     );
 }   
 
-export default Register;
+export default PageTransition(Register);

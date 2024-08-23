@@ -1,5 +1,5 @@
 import React from 'react'
-
+import PageTransition from '../../Parts/Animation/PageTransition';
 function NotFound() {
   return (
     <div   style={{
@@ -23,4 +23,4 @@ function NotFound() {
   )
 }
 
-export default NotFound
+export default PageTransition(NotFound);

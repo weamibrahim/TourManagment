@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import SideBar from '../../SideBar/SideBar';
+import PageTransition from '../../../../Parts/Animation/PageTransition';
 function UpdateTour() {
   const navigate = useNavigate();
   const { id } = useParams(); // Get the tour ID from the URL parameters
@@ -174,4 +175,4 @@ console.log("formData",formData)
   );
 }
 
-export default UpdateTour;
+export default PageTransition(UpdateTour);

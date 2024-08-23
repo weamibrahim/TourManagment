@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter, Route, Routes, Navigate, NavLink } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate, useLocation,NavLink } from "react-router-dom";
 import Header from './Components/Parts/Header/Header';
 import Footer from './Components/Parts/Footer/Footer';
 import Home from './Components/Pages/Home/Home';
@@ -20,6 +20,7 @@ import AllReviews from './Components/Pages/Dashboard/Reviews/AllReview/AllReview
 import AllUser from './Components/Pages/Dashboard/Users/AllUser/AllUser';
 import NotFound from './Components/Pages/NotFound/NotFound';
 import { LoginProvider } from './Contexts/LoginContext';
+import { AnimatePresence } from 'framer-motion';
 //import { useState ,useEffect} from "react";
 
 function App() {
@@ -27,12 +28,15 @@ function App() {
   const UserDate= JSON.parse(localStorage.getItem('user'));
   const userRole= UserDate ? UserDate.role : null;
   const isAdmin = userRole === "admin";
+  const location = useLocation();  
   return (
     <div className="App">
       <LoginProvider>
-      <BrowserRouter>
+      
+      
 <Header/>
-        <Routes>
+<AnimatePresence mode='wait'>
+        <Routes location={location} key={location.pathname}>
         
         {isAdmin?(
   <>
@@ -62,8 +66,10 @@ function App() {
 
          
         </Routes>
+        </AnimatePresence>
 <Footer/>
-      </BrowserRouter>
+      
+     
       </LoginProvider>
     </div>
   );

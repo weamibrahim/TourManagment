@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import SideBar from '../../SideBar/SideBar';
+import PageTransition from '../../../../Parts/Animation/PageTransition';
 function CreateTour() {
   const navigate = useNavigate();
   
@@ -144,4 +145,4 @@ function CreateTour() {
   );
 }
 
-export default CreateTour;
+export default PageTransition(CreateTour);

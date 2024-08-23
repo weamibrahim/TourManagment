@@ -3,6 +3,7 @@ import './profile.css'
 import { NavLink } from 'react-router-dom'
 import { FaRegEdit } from "react-icons/fa";
 import { Helmet } from 'react-helmet-async';
+import PageTransition from '../../Parts/Animation/PageTransition';
 function profile() {
 
     let user=JSON.parse(localStorage.getItem("user"));
@@ -65,4 +66,4 @@ function profile() {
   )
 }
 
-export default profile
+export default PageTransition(profile)

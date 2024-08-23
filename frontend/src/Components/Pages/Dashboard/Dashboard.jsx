@@ -6,6 +6,7 @@ import TourRating from './charts/TourRating';
 import RevenuePerMonth from './charts/RevenuePerMonth';
 import MaxGroupSizePerTour from './charts/MaxGroupSizePerTour';
 import './Dashboard.css';
+import PageTransition from '../../Parts/Animation/PageTransition';
 
 function Dashboard() {
   
@@ -36,4 +37,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default PageTransition(Dashboard);
