@@ -35,7 +35,7 @@ const isAdmin = userRole === "admin";
       <ul className="navbar-nav ms-auto mb-2 mb-lg-0 fs-4" style={{  fontFamily: "Sofia"}}>
         
         <li className="nav-item">
-          <NavLink to="/tours" className="nav-link" ><GiJourney  className="fs-3 mx-2"/>Tours</NavLink>
+          <NavLink to="/tours" className="nav-link" ><GiJourney  className="fs-3 mx-1"/>Tours</NavLink>
         </li>
         {IsLogin?(
           <>
@@ -70,10 +70,10 @@ const isAdmin = userRole === "admin";
         ):(
           <>
           <li className="nav-item">
-          <NavLink to="/register" className="nav-link" >Register</NavLink>
+          <NavLink to="/register" className="nav-link mx-2" >Register</NavLink>
       </li>
       <li className="nav-item">
-          <NavLink to="/login" className="nav-link" >Login</NavLink>
+          <NavLink to="/login" className="nav-link mx-2" >Login</NavLink>
       </li>
      
       </>
