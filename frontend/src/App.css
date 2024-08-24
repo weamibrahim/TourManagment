@@ -7,7 +7,7 @@
     width: 100%;
     height: 100vh;
     background-color: rgb(97, 116, 240);
-    transform-origin: right;
+    transform-origin: left;
   }
   
   .slide-out {
@@ -18,5 +18,5 @@
     width: 100%;
     height: 100vh;
     background-color: rgb(97, 116, 240);
-    transform-origin: left;
+    transform-origin: right;
   }
