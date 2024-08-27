@@ -1,6 +1,49 @@
-.sideBar{
-   max-width: 200px;
-    border: 4px solid rgb(217, 217, 217);
-    background-color: rgb(125, 151, 255);
-   
+.sideBar {
+   height: 100vh;
+   background-color: #f8f9fa;
+   display: flex;
+   flex-direction: column;
+   padding: 30px;
+position: fixed;
+   left: 0;
+   top: 0;
+   width: 250px; 
+   z-index: 1000;
+   transition: transform 0.3s ease; 
+}
+
+@media (max-width: 768px) {
+   .sideBar {
+       transform: translateX(-100%); 
+       z-index: 2000; 
+   }
+
+   .sideBar.open {
+       transform: translateX(0); 
+   }
+
+   .sideBar-toggle {
+       display: block; 
+       position: fixed;
+       top: 5px;
+       left: 5px;
+       z-index: 3000; 
+       background-color: #d5cdcd;
+       color: #fff;
+       padding: 10px;
+       border-radius: 5px;
+       cursor: pointer;
+      
+       
+   }
+}
+
+@media (min-width: 769px) {
+   .sideBar-toggle {
+       display: none; 
+   }
+
+   .main-content {
+       margin-left: 250px; 
+   }
 }

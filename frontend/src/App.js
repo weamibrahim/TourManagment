@@ -18,9 +18,11 @@ import CreateTour from './Components/Pages/Dashboard/Tours/CreateTour/CreateTour
 import UpdateTour from './Components/Pages/Dashboard/Tours/UpdateTour/UpdateTour';
 import AllReviews from './Components/Pages/Dashboard/Reviews/AllReview/AllReview';
 import AllUser from './Components/Pages/Dashboard/Users/AllUser/AllUser';
+import  AllBooking from './Components/Pages/Dashboard/AllBooking/AllBooking';
 import NotFound from './Components/Pages/NotFound/NotFound';
 import { LoginProvider } from './Contexts/LoginContext';
 import { AnimatePresence } from 'framer-motion';
+
 //import { useState ,useEffect} from "react";
 
 function App() {
@@ -29,12 +31,12 @@ function App() {
   const userRole= UserDate ? UserDate.role : null;
   const isAdmin = userRole === "admin";
   const location = useLocation();  
+  const isDashboard = location.pathname.startsWith('/dashboard');
   return (
     <div className="App">
       <LoginProvider>
       
-      
-<Header/>
+      {!isDashboard && <Header />}
 <AnimatePresence mode='wait'>
         <Routes location={location} key={location.pathname}>
         
@@ -46,6 +48,7 @@ function App() {
           <Route path="/dashboard/tours/update/:id" element={loggedIn ? <UpdateTour />: <Navigate to="/login" />} />
           <Route path="/dashboard/reviews" element={loggedIn ? <AllReviews />: <Navigate to="/login" />} />
           <Route path="/dashboard/users" element={loggedIn ? <AllUser />: <Navigate to="/login" />} />
+          <Route path="/dashboard/bookings" element={loggedIn ? <AllBooking />: <Navigate to="/login" />} />
           
           </>
 ):(
@@ -67,7 +70,7 @@ function App() {
          
         </Routes>
         </AnimatePresence>
-<Footer/>
+        {!isDashboard && <Footer />}
       
      
       </LoginProvider>

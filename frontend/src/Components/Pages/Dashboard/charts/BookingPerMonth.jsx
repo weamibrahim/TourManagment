@@ -71,11 +71,12 @@ function BookingPerMonth() {
         },
       },
     },
+    
   };
 
   return (
     <div>
-      <h3>Bookings Per Month</h3>
+      <h4>Bookings Per Month</h4>
       {error ? (
         <p>Error: {error}</p>
       ) : chartData.labels ? (

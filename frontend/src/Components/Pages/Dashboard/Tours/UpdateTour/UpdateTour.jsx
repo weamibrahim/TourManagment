@@ -84,10 +84,10 @@ console.log("formData",formData)
   };
 
   return (
-    <div className='d-flex '>
+    <div className='d-flex main-content'>
     <SideBar/>
-      <form className='form m-auto'>
-        <h1>Update Tour</h1>
+      <form className='form m-auto my-4'>
+        <h1 className='text-center'>Update Tour</h1>
         <div>
           <label className='form-label'>Photo</label>
           <input

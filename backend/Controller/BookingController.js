@@ -28,10 +28,30 @@ BookingController.CreateBooking = async (req, res, next) => {
     }
 }
 
+// get booking
+BookingController.GetBookings = async (req, res, next) => {
+    try {
+        const bookings = await Booking.find().populate('tourID').populate('userID')
+        console.log(bookings)
+        res.status(200).json({ bookings })
+    } catch (err) {
+        next(err)
+    }
+}
 BookingController.GetBooking = async (req, res, next) => {
     try {
         const id = req.params.id
         const booking = await Booking.findById(id).populate('tourID').populate('userID')
+        console.log(booking)
+        res.status(200).json({ booking })
+    } catch (err) {
+        next(err)
+    }
+}
+BookingController.DeleteBooking = async (req, res, next) => {
+    try {
+        const id = req.params.id
+        const booking = await Booking.findByIdAndDelete(id)
         console.log(booking)
         res.status(200).json({ booking })
     } catch (err) {

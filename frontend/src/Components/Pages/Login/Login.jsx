@@ -30,6 +30,7 @@ const Login = () => {
         localStorage.setItem("accessToken", JSON.stringify(data.accessToken));
         localStorage.setItem("user", JSON.stringify(data.user));
         setIsLogin(true);
+        if(data.user.role === "admin") navigate('/dashboard')
       } else {
         setErrors({ serverError: data.message });
       }

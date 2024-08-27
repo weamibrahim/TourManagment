@@ -61,10 +61,10 @@ function CreateTour() {
   };
 
   return (
-    <div  className='d-flex'>
+    <div  className='d-flex main-content'>
     <SideBar/>
-      <form className='form m-auto'>
-        <h1>Create Tour</h1>
+      <form className='form m-auto my-4 '>
+        <h1 className='text-center'>Create Tour</h1>
         <div>
           <label className='form-label'>Photo</label>
           <input

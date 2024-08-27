@@ -7,6 +7,10 @@ function AllUser() {
     const [users, setUsers] = useState([])
 
     useEffect(() => {
+
+        GetAllUser()
+    }, [])
+    const GetAllUser =()=>{
         fetch('https://tour-managment-three.vercel.app/api/users/alluser', {
             method: 'GET',
             headers: {
@@ -18,7 +22,7 @@ function AllUser() {
                 console.log(data)
                 setUsers(data)
             })
-    }, [])
+    }
     const handleDelete = (id) => {
 
         fetch(`https://tour-managment-three.vercel.app/api/users/delete/${id}`, {
@@ -31,16 +35,18 @@ function AllUser() {
 
             }
 
+        }).then(res => res.json()).then(()=>{
+            setUsers(users.filter(user=> user._id !==id))
         })
     }
   return (
   
-    <div className='d-flex justify-content-around'>
+    <div className='d-flex justify-content-around main-content'>
     <SideBar/>
-    <div className='container'>
-      <div className="table-responsive">
+    <div className='container my-4'>
+      <div className="table-responsive mx-auto my-5 shadow   mb-5 bg-body rounded">
        <table className='table'>
-            <thead>
+            <thead className='table-secondary'>
                 <tr>
                     <th>Id</th>
                     <th>Name</th>

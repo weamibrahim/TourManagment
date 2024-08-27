@@ -89,7 +89,7 @@ function TourRating() {
 
   return (
     <div>
-      <h3>Tour Rating per Month</h3>
+      <h4>Tour Rating per Month</h4>
       {error ? (
         <p>Error: {error}</p>
       ) : chartData.labels ? (

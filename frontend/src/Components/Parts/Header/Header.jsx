@@ -7,8 +7,9 @@ import { MdDashboard } from "react-icons/md";
 import { GiJourney } from "react-icons/gi";
 import "./Header.css"
 import { useLogin } from "../../../Contexts/LoginContext";
+import {  useNavigate } from 'react-router-dom';
 function Header() {
-
+const navigate = useNavigate();
   const {setIsLogin,IsLogin} = useLogin();
 const UserDate= JSON.parse(localStorage.getItem('user'));
 const userRole= UserDate ? UserDate.role : null;
@@ -17,6 +18,8 @@ const isAdmin = userRole === "admin";
     localStorage.removeItem('accessToken');
     localStorage.removeItem('user');
     setIsLogin(false);
+    navigate('/login');  
+
   }
     return (
         <div >

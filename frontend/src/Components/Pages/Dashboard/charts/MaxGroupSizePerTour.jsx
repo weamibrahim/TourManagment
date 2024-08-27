@@ -54,15 +54,17 @@ function MaxGroupSizePerTour() {
   }, []);
 
   return (
-    <div>
-      <h3>Max Group Size Per Tour</h3>
+    <div >
+      <h4>Max Group Size Per Tour</h4>
+      <div className='h-75'>
       {error ? (
         <p>Error: {error}</p>
       ) : chartData.labels ? (
-        <Doughnut data={chartData} />
+        <Doughnut   data={chartData} />
       ) : (
         <p>Loading bookings data...</p>
       )}
+      </div>
     </div>
   );
 }

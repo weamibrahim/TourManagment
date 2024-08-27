@@ -9,28 +9,37 @@ import './Dashboard.css';
 import PageTransition from '../../Parts/Animation/PageTransition';
 
 function Dashboard() {
-  
+
 
   return (
     <>
       <Helmet>
         <title>Dashboard</title>
       </Helmet>
-      <div className='d-flex'>
-
-        <SideBar />
-        <div className='container'>
-        <div className='row'>
-          <div className='col-md-4'>
-          <BookingPerMonth/>
-          </div>
-          <div className='col-md-4'><NumOFCities/></div>
-          <div className='col-md-4'><TourRating/></div>
-          <div className='col-md-4'><RevenuePerMonth/></div>
-          <div className='col-md-4'><MaxGroupSizePerTour/></div>
-
+      <div className='main-content' >
+        <div className=' d-flex justify-content-between' >
         
-        </div>
+            <SideBar />
+        
+          <div className='mx-auto my-5' >
+
+            <div className='container '>
+              <div className='row  '>
+                <div className=' col-md-4  shadow p-2  mx-3 mb-5 bg-body rounded'><BookingPerMonth /></div>
+            
+                <div className='col-md-2 shadow p-3 mb-5 mx-3  bg-body rounded '><MaxGroupSizePerTour /></div>
+                <div className='col-md-4 shadow p-3 mb-5 mx-2  bg-body rounded'><NumOFCities /></div>
+                
+              <div className='col-md-5 shadow p-3 mb-5  mx-3 bg-body rounded'><TourRating /></div>
+                
+                <div className='col-md-5 shadow p-3 mx-3 mb-5 bg-body rounded'><RevenuePerMonth /></div>
+                
+
+
+              </div>
+              
+            </div>
+          </div>
         </div>
       </div>
     </>

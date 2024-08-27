@@ -6,15 +6,18 @@ function AllReview() {
   const [reviews, setReviews] = useState([])
 
   useEffect(() => {
-    fetch('https://tour-managment-three.vercel.app/api/review/Reviews'
-    )
-      .then(res => res.json())
-      .then(data => {
-        console.log(data)
-        setReviews(data)
-      })
+    GetAllReview()
      
   }, [])
+ const GetAllReview =()=>{
+  fetch('https://tour-managment-three.vercel.app/api/review/Reviews'
+  )
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      setReviews(data)
+    })
+ }
   const handleDelete = (id) => {
 
     fetch(`https://tour-managment-three.vercel.app/api/review/delete/${id}`, {
@@ -30,14 +33,20 @@ function AllReview() {
     })
 
       .then(res => res.json())
+
+      .then(() => {
+
+        setReviews(reviews.filter(review => review._id !== id))
+
+      })
   }
   return (
-    <div className='d-flex justify-content-around'>
+    <div className='d-flex justify-content-around main-content'>
     <SideBar/>
-    <div className='container'>
-      <div className="table-responsive">
-      <table className="table">
-        <thead>
+    <div className='container my-4'>
+      <div className="table-responsive mx-auto my-5 shadow   mb-5 bg-body rounded">
+      <table className="table ">
+        <thead className="table-secondary">
           <tr>
             <th scope="col">#</th>
             <th scope="col">Name</th>

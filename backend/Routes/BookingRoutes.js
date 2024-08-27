@@ -9,6 +9,8 @@ const router = express.Router();
 
 router.get('/Booking/:id',verifyToken,BookingController.GetBooking)
 router.post('/create/:id',verifyToken ,BookingController.CreateBooking)
+router.get('/all-bookings',verifyToken,verifyRole, BookingController.GetBookings)
+router.delete('/delete/:id',verifyToken,verifyRole, BookingController.DeleteBooking)
 router.get('/bookings-per-month', verifyToken,verifyRole, BookingController.GetBookingPerMonth);
 router.get('/num-of-cities',verifyToken,verifyRole, BookingController.GetNumOfCities);
 router.get('/tour-ratings',verifyToken,verifyRole, BookingController.GetTourRatings);

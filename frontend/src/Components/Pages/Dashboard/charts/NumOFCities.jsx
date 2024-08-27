@@ -87,7 +87,7 @@ function NumOFCities() {
 
   return (
     <div>
-      <h3>Number of cities per month</h3> 
+      <h4>Number of cities per month</h4> 
       {error ? (
         <p>Error: {error}</p>
       ) : chartData.labels ? (

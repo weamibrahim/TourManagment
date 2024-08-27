@@ -77,7 +77,7 @@ function RevenuePerMonth() {
     };
   return (
     <div>
-    <h3>Revenue Per Month</h3>
+    <h4>Revenue Per Month</h4>
      {error ? (
        <p>Error: {error}</p>
      ) : chartData.labels ? (
