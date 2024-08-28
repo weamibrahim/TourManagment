@@ -1,10 +1,11 @@
+/* Sidebar Styles */
 .sideBar {
    height: 100vh;
    background-color: #f8f9fa;
    display: flex;
    flex-direction: column;
    padding: 30px;
-position: fixed;
+   position: fixed;
    left: 0;
    top: 0;
    width: 250px; 
@@ -33,8 +34,11 @@ position: fixed;
        padding: 10px;
        border-radius: 5px;
        cursor: pointer;
-      
-       
+       transition: left 0.3s ease; 
+   }
+
+   .sideBar.open + .sideBar-toggle {
+       left: 255px;  
    }
 }
 
