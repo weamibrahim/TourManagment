@@ -56,11 +56,11 @@ function SideBar() {
 
         <div className='fs-5 px-3 py-2 d-flex align-items-center mt-auto'>
         
-          <button className="nav-link" onClick={handleLogout}><IoIosLogOut className="fs-4 me-2" /> Logout</button>
+          <button className="nav-link" onClick={handleLogout}><IoIosLogOut className="fs-4 my-5" /> Logout</button>
         </div>
       </div>
 
-      <button className="sideBar-toggle " onClick={toggleSidebar}>
+      <button className="sideBar-toggle  bg-body-secondary text-black " onClick={toggleSidebar}>
         {isOpen ? <IoMdClose /> : <CiMenuBurger />}
       </button>
     </>

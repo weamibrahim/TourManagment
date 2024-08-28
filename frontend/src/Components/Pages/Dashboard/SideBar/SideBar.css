@@ -16,7 +16,7 @@
 @media (max-width: 768px) {
    .sideBar {
        transform: translateX(-100%); 
-       z-index: 2000; 
+       z-index: 1; 
    }
 
    .sideBar.open {
@@ -28,9 +28,8 @@
        position: fixed;
        top: 5px;
        left: 5px;
-       z-index: 3000; 
-       background-color: #d5cdcd;
-       color: #fff;
+       z-index: 2; 
+   
        padding: 10px;
        border-radius: 5px;
        cursor: pointer;
