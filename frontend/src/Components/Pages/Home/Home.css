@@ -1,7 +1,58 @@
-.imgHover:hover{
-transition: all 0.5s;
-transform: scale(1.1);
+/* Update CSS */
 
-}
-
+.imgHover:hover {
+    transition: all 0.5s;
+    transform: scale(1.1);
+  }
+  
+  .main_img {
+    width: 70%; /* Make the image responsive */
+    max-width: 400px; /* Optional maximum width */
+    border-radius: 50px;
+    z-index: 1;
+  }
+  
+  .branch_img,
+  .branch2_img {
+    
+    max-width: 300px; /* Adjust maximum width */
+    position: absolute;
+    border-radius: 50px;
+  }
+  
+  .branch_img {
+    width: 50%;
+    top: 60%;
+    right: 10%;
+    z-index: 2;
+  }
+  
+  .branch2_img {
+    width: 40%;
+    top: 30%;
+  left: 60%;
+    z-index: 3;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .main_img,
+    .branch_img,
+    .branch2_img {
+      width: 100%;
+      max-width: 100%; /* Make images take full width on small screens */
+      position: relative; /* Remove absolute positioning for better responsiveness */
+      margin-bottom: 10px; /* Add margin for spacing */
+    }
+  
+    .branch_img {
+      right: 0;
+      top: 0;
+    }
+  
+    .branch2_img {
+      left: 0;
+      top: 0;
+    }
+  }
   
