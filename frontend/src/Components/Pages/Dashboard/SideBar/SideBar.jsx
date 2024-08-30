@@ -11,6 +11,7 @@ import { useLogin } from "../../../../Contexts/LoginContext";
 import { useNavigate } from 'react-router-dom';
 import { CiMenuBurger } from "react-icons/ci";
 import { IoMdClose } from "react-icons/io";
+import { motion } from "framer-motion";
 function SideBar() {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
@@ -29,13 +30,25 @@ function SideBar() {
   return (
     <>
       <div className={`sideBar ${isOpen ? 'open' : ''}`}>
-        <div className='d-flex justify-content-between align-items-center  '>
+      <motion.svg
+      className="wavy-background "
+      viewBox="0 0 500 500"
+      initial={{ pathLength: 0 }}
+      animate={{ pathLength: 1 }}
+      transition={{ duration: 2, repeat: Infinity, repeatType: "mirror" }}
+    >
+      <motion.path
+        d="M0,100 C150,200 300,0 500,100 L500,00 L0,0 Z"
+        fill="#6c63ff"
+      />
+    </motion.svg>
+        <div className='d-flex justify-content-between align-items-center mt-5 '>
       
        <NavLink to="/" className="text-decoration-none text-black mx-3 my-2 fs-2 fw-bold">TravelTrails</NavLink>
         </div>
-        <div className='fs-5 bg-body-secondary rounded-3 px-3 py-2 d-flex align-items-center'>
+        <div className='fs-5 bg-body-secondary rounded-3 px-3 py-2 d-flex align-items-center my-4'>
           <MdDashboard />
-          <NavLink to="/dashboard" className="text-decoration-none text-black mx-3 my-2">Dashboard</NavLink>
+          <NavLink to="/dashboard" className="text-decoration-none text-black mx-3 mt-2 ">Dashboard</NavLink>
         </div>
         <div className='fs-5 px-3 py-2 d-flex align-items-center'>
           <GiJourney />
