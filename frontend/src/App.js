@@ -21,6 +21,7 @@ import AllUser from './Components/Pages/Dashboard/Users/AllUser/AllUser';
 import  AllBooking from './Components/Pages/Dashboard/AllBooking/AllBooking';
 import NotFound from './Components/Pages/NotFound/NotFound';
 import { LoginProvider } from './Contexts/LoginContext';
+import { TokenProvider } from './Contexts/TokenContext';
 import { AnimatePresence } from 'framer-motion';
 
 //import { useState ,useEffect} from "react";
@@ -35,7 +36,7 @@ function App() {
   return (
     <div className="App">
       <LoginProvider>
-      
+      <TokenProvider>
       {!isDashboard && <Header />}
 <AnimatePresence mode='wait'>
         <Routes location={location} key={location.pathname}>
@@ -72,7 +73,7 @@ function App() {
         </AnimatePresence>
         {!isDashboard && <Footer />}
       
-     
+     </TokenProvider>
       </LoginProvider>
     </div>
   );

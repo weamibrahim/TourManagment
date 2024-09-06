@@ -3,10 +3,11 @@ import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import SideBar from '../../SideBar/SideBar';
 import PageTransition from '../../../../Parts/Animation/PageTransition';
+import { useToken } from '../../../../../Contexts/TokenContext';
 function UpdateTour() {
   const navigate = useNavigate();
   const { id } = useParams(); // Get the tour ID from the URL parameters
-
+  const { accessToken } = useToken();
   const [inputs, setInputs] = useState({
     title: "",
     city: "",
@@ -52,7 +53,7 @@ function UpdateTour() {
   };
 
   const handleClick = async (e) => {
-    const accessToken = localStorage.getItem('accessToken');
+
     console.log('Access Token:', accessToken);
     e.preventDefault();
 

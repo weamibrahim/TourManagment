@@ -2,10 +2,11 @@ import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import PageTransition from '../../Parts/Animation/PageTransition';
+import { useToken } from '../../../Contexts/TokenContext';
 function UpdateProfile() {
     const navigate = useNavigate()
     let user=JSON.parse(localStorage.getItem("user"))
-    const accessToken = JSON.parse(localStorage.getItem("accessToken"))
+    const { accessToken } = useToken();
     const [inputs, setInputs] = useState({
 
         name:user.name,

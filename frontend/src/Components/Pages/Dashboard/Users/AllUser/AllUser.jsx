@@ -3,9 +3,10 @@ import { useState , useEffect } from 'react'
 import SideBar from '../../SideBar/SideBar';
 import { MdDelete } from "react-icons/md";
 import PageTransition from '../../../../Parts/Animation/PageTransition';
+import { useToken } from '../../../../../Contexts/TokenContext';
 function AllUser() {
     const [users, setUsers] = useState([])
-
+    const { accessToken } = useToken();
     useEffect(() => {
 
         GetAllUser()
@@ -14,7 +15,7 @@ function AllUser() {
         fetch('https://tour-managment-three.vercel.app/api/users/alluser', {
             method: 'GET',
             headers: {
-                'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                'Authorization': `Bearer ${accessToken}`
             }
         })
             .then(res => res.json())

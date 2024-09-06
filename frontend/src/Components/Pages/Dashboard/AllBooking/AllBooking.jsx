@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import { MdOutlineStar } from "react-icons/md";
 import SideBar from '../SideBar/SideBar';
 import { MdDelete } from "react-icons/md";
-
+import {useToken} from '../../../../Contexts/TokenContext'
 function AllBooking() {
   const [bookings, setBookings] = useState([]);
-
+ const {accessToken } = useToken()
   useEffect(() => {
     GetAllBooking();
   }, []);
@@ -14,7 +14,7 @@ function AllBooking() {
     fetch('https://tour-managment-three.vercel.app/api/booking/all-bookings', {
       method: 'GET',
       headers: {
-        'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
+        'Authorization': `Bearer ${accessToken }`
       }
     })
       .then(res => res.json())

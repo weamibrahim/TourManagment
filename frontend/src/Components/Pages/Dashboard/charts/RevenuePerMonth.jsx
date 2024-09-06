@@ -4,17 +4,18 @@ import  { useEffect, useState } from 'react';
 import axios from 'axios';
 import Chart from 'chart.js/auto';
 import { Bar } from 'react-chartjs-2';
+import { useToken } from '../../../../Contexts/TokenContext';
 function RevenuePerMonth() {
     const [chartData, setChartData] = useState({});
     const [error, setError] = useState(null);
-  
+    const { accessToken } = useToken();
     useEffect(() => {
       const fetchBookingsData = async () => {
         try {
           const response = await axios.get('https://tour-managment-three.vercel.app/api/Booking/revenue-per-month', {
             headers: {
               'Content-Type': 'application/json',
-              Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+              Authorization: `Bearer ${accessToken}`,
             },
           });
           const data = response.data;

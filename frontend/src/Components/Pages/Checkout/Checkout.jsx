@@ -1,9 +1,10 @@
 import React from 'react';
 import PageTransition from '../../Parts/Animation/PageTransition';
+import { useToken } from '../../../Contexts/TokenContext';
 function Checkout({ data }) {
   console.log(data);
 
-  const accessToken = JSON.parse(localStorage.getItem("accessToken"));
+  const accessToken = useToken();
   
   const handleCheckout = async () => {
     try {

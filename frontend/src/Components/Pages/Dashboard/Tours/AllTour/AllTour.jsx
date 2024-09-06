@@ -6,10 +6,11 @@ import SideBar from '../../SideBar/SideBar';
 import { MdDelete } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
 import PageTransition from '../../../../Parts/Animation/PageTransition';
+import { useToken } from '../../../../../Contexts/TokenContext';
 function AllTour() {
   const [page, setPage] = useState(1)
   const [tours, setTours] = useState([])
-
+  const { accessToken } = useToken();
     useEffect(() => {
         GetAllTour()
     }, [page])
@@ -31,7 +32,7 @@ function AllTour() {
         fetch(`https://tour-managment-three.vercel.app/api/tour/delete/${id}`, {
             method: 'DELETE',
             headers: {
-                'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                'Authorization': `Bearer ${accessToken}`
             }
 
         

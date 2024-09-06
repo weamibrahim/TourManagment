@@ -1,12 +1,13 @@
 import { useState } from 'react';
 ///import { useNavigate } from 'react-router-dom';
 import Checkout from '../../Pages/Checkout/Checkout';
+import { useToken } from '../../../Contexts/TokenContext';
 function Booking({ dataOfTour }) {
     console.log({dataOfTour})
     const tour = dataOfTour;
     const priceOfTour= tour.price
     const [dataOfBooking, setDataOfBooking] = useState({});
-    const accessToken = JSON.parse(localStorage.getItem("accessToken"));
+    const { accessToken } = useToken();
     //const navigate = useNavigate();
     const [inputs, setInputs] = useState({
        

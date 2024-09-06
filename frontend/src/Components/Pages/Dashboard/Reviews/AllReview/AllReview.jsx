@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react'
 import { MdOutlineStar } from "react-icons/md";
 import SideBar from '../../SideBar/SideBar';
 import { MdDelete } from "react-icons/md";
+import {useToken} from '../../../../../Contexts/TokenContext'
 function AllReview() {
   const [reviews, setReviews] = useState([])
-
+  const { accessToken } = useToken();
   useEffect(() => {
     GetAllReview()
      
@@ -26,7 +27,7 @@ function AllReview() {
 
       headers: {
 
-        'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
+        'Authorization': `Bearer ${accessToken}`
 
       }
 

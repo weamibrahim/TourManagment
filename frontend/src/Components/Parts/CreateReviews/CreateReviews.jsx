@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import ReactStars from "react-rating-stars-component";
 import { json } from "react-router-dom";
-
+import { useToken } from "../../../Contexts/TokenContext";
 const CreateReviews = ({ tourId }) => {
     const [reviewText, setReviewText] = useState("");
     const [rating, setRating] = useState(0);
-
+    const { accessToken } = useToken();
     const handleSubmit = (e) => {
-        const accessToken =JSON.parse(localStorage.getItem("accessToken"));
+        
         e.preventDefault();
         fetch(`https://tour-managment-three.vercel.app/api/review/create/${tourId}`, {
             method: "POST",
