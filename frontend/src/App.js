@@ -22,6 +22,7 @@ import  AllBooking from './Components/Pages/Dashboard/AllBooking/AllBooking';
 import NotFound from './Components/Pages/NotFound/NotFound';
 import { LoginProvider } from './Contexts/LoginContext';
 import { TokenProvider } from './Contexts/TokenContext';
+import { TourProvider } from './Contexts/TourContext';
 import { AnimatePresence } from 'framer-motion';
 
 //import { useState ,useEffect} from "react";
@@ -37,6 +38,7 @@ function App() {
     <div className="App">
       <LoginProvider>
       <TokenProvider>
+      <TourProvider>
       {!isDashboard && <Header />}
 <AnimatePresence mode='wait'>
         <Routes location={location} key={location.pathname}>
@@ -72,7 +74,7 @@ function App() {
         </Routes>
         </AnimatePresence>
         {!isDashboard && <Footer />}
-      
+      </TourProvider>
      </TokenProvider>
       </LoginProvider>
     </div>

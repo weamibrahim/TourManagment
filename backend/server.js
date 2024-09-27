@@ -8,6 +8,8 @@ const tourRoutes= require("./Routes/TourRoutes")
 const ReviewRoutes= require("./Routes/ReviewRoutes")
 const BookingRoutes= require("./Routes/BookingRoutes")
 const StripeRoutes=require("./Routes/StripeRoutes")
+
+const WebHookRoute = require('./Routes/WebHookRoutes');
 const path = require("path");
 // Load environment variables from .env file
 require("dotenv").config();
@@ -17,7 +19,10 @@ const PORT = process.env.PORT || 7000;
 const mongoURI = process.env.MONGO_URI;
 
 
-app.use(bodyParser.json());
+
+// Middleware
+app.use(express.json());
+app.use('/webhook', express.raw({ type: 'application/json' }), WebHookRoute);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'))
 

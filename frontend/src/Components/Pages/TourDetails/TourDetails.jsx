@@ -11,9 +11,10 @@ import { MdStreetview } from "react-icons/md";
 import { MdOutlinePerson } from "react-icons/md";
 import Booking from "../../Parts/Booking/Booking";
 import { Helmet } from "react-helmet-async";
+import { useTourData } from "../../../Contexts/TourContext";
 function TourDetails() {
     const { id } = useParams();
-    const [tour, setTour] = useState({});
+   const { tour, setTour } = useTourData();
 
     useEffect(() => {
         fetch(`https://tour-managment-three.vercel.app/api/tour/tour/${id}`)
@@ -83,7 +84,7 @@ function TourDetails() {
 
                 <div className="col-md-4 my-4 ">
 
-<Booking dataOfTour={tour}/>
+<Booking />
                 
                 </div>
             </div>

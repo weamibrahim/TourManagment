@@ -3,28 +3,15 @@ const Tour = require('../Models/Tour')
 
 const BookingController = {}
 
-BookingController.CreateBooking = async (req, res, next) => {
+BookingController.CreateBooking = async (data) => {
     try {
-        const tourId = req.params.id
-        const userId = req.user.userId
-        const { name, GroupSize, phone, DateOfTour, price, nameOfTour } = req.body
-        console.log(req.body)
-        const booking = await new Booking({
-            userID: userId,
-            tourID: tourId,
-            GroupSize,
-            phone
-            , DateOfTour,
-            name,
-            price,
-            nameOfTour,
-
-
-        }).save()
+       
+        const booking = await Booking.create(data)
+            
         console.log("booking", booking)
-        res.status(200).json({ booking })
+      
     } catch (err) {
-        next(err)
+        console.log(err)
     }
 }
 

@@ -2,11 +2,12 @@ import { useState } from 'react';
 ///import { useNavigate } from 'react-router-dom';
 import Checkout from '../../Pages/Checkout/Checkout';
 import { useToken } from '../../../Contexts/TokenContext';
-function Booking({ dataOfTour }) {
-    console.log({dataOfTour})
-    const tour = dataOfTour;
+import { useTourData } from '../../../Contexts/TourContext';
+function Booking() {
+    const { tour } = useTourData();
+    console.log(tour)
     const priceOfTour= tour.price
-    const [dataOfBooking, setDataOfBooking] = useState({});
+    // const [dataOfBooking, setDataOfBooking] = useState({});
     const { accessToken } = useToken();
     //const navigate = useNavigate();
     const [inputs, setInputs] = useState({
@@ -30,7 +31,7 @@ function Booking({ dataOfTour }) {
         });
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async(event) => {
 
         const bookingDetails = {
             ...inputs,
@@ -39,26 +40,34 @@ function Booking({ dataOfTour }) {
            
         };
         event.preventDefault();
-        fetch(`https://tour-managment-three.vercel.app/api/booking/create/${tour._id}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${accessToken}`
-            },
-            body: JSON.stringify(bookingDetails)
-        }).then((res) => {
-            if (!res.ok) {
-                throw new Error('Network response was not ok');
+        try {
+            const response = await fetch(
+              " https://tour-managment-three.vercel.app/api/stripe/create-checkout-session", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${accessToken}`,
+              },
+              body: JSON.stringify(bookingDetails),
+            });
+      
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
             }
-            return res.json();
-        }).then((data) => {
-            console.log("checkout", data.booking._id);
-            setDataOfBooking(data.booking);
-            // Redirect to checkout with booking data
-           // navigate(`/checkout`, { state: data.booking });
-        }).catch((error) => {
-            console.error("Error:", error);
-        });
+      
+            const responseData = await response.json();
+            console.log("Stripe session created:", responseData);
+      
+            if (responseData.url) {
+              window.location.href = responseData.url; // Redirect to Stripe session URL
+            } else {
+              console.error('Invalid response data:', responseData);
+            }
+      
+          } catch (error) {
+            console.error('Error during checkout:', error);
+          }
+       
     };
 
     return (
@@ -99,7 +108,13 @@ function Booking({ dataOfTour }) {
                     <div>Total </div>
                     <div>${20+priceOfTour * inputs.GroupSize}</div>
                     </div>
-                   <Checkout data={dataOfBooking}/> 
+                    <div>
+      <div className='d-flex justify-content-center'>
+        <button type="submit" className="btn btn-primary" onClick={handleSubmit}>
+          Book Now
+        </button>
+      </div>
+    </div>
                 </form>
             </div>
         </div>

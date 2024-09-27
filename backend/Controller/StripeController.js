@@ -1,7 +1,8 @@
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const stripePayment = async (req, res) => {
-    const {  price, nameOfTour, _id ,GroupSize} = req.body;
+    console.log(req.body)
+    const {  price, nameOfTour, _id ,GroupSize,} = req.body;
 
     // Check if _id is valid
     if (!_id) {
@@ -18,7 +19,11 @@ const stripePayment = async (req, res) => {
                 name: nameOfTour,
                 metadata: {
                     id: _id,
-                    
+                    userId: req.body.userId,
+                    tourId: req.body.tourId,
+                    userName: req.body.name,
+                    phone: req.body.phone,
+                    dateOfTour: req.body.DateOfTour,
                 },
             },
             unit_amount: unitAmount,
@@ -26,6 +31,7 @@ const stripePayment = async (req, res) => {
         quantity: GroupSize
     };
 
+    console.log("lineItem",lineItem)
     try {
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ["card"],
