@@ -1,7 +1,7 @@
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const stripePayment = async (req, res) => {
-    console.log(req.body)
+    // console.log(req.body)
     const {  price, nameOfTour,GroupSize,} = req.body;
 
 
@@ -27,7 +27,7 @@ const stripePayment = async (req, res) => {
         quantity: GroupSize
     };
 
-    console.log("lineItem",lineItem)
+   // console.log("lineItem",lineItem)
     try {
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ["card"],
@@ -85,7 +85,7 @@ const stripePayment = async (req, res) => {
             cancel_url: `${process.env.CLIENT_URL}/tours`,
         });
 
-        console.log("Stripe session created:", session);
+       // console.log("Stripe session created:", session);
         res.send({ url: session.url });
     } catch (error) {
         console.error("Error creating Stripe checkout session:", error);

@@ -5,6 +5,9 @@ const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
 const WebhookController = {};
 
 WebhookController.handleWebhook = async (req, res) => {
+//      console.log('STRIPE_SECRET_KEY:', process.env.STRIPE_SECRET_KEY);
+//   console.log('STRIPE_WEBHOOK_SECRET:', process.env.STRIPE_WEBHOOK_SECRET);
+  
   const sig = req.headers['stripe-signature'];
   let event;
 
@@ -35,11 +38,13 @@ WebhookController.handleWebhook = async (req, res) => {
         nameOfTour: lineItems.data[0].description,
       };
 
-      CreateBooking(bookingData);
 
-      console.log('Booking successfully saved:', booking);
+    await  CreateBooking(bookingData);
+
+      console.log('Booking successfully saved:', bookingData);
     } catch (err) {
       console.error('Error saving booking:', err);
+      return res.status(500).send('Error saving booking');
     }
   }
 

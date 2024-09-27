@@ -5,7 +5,7 @@ const BookingController = {}
 
 BookingController.CreateBooking = async (data) => {
     try {
-       
+       console.log("data of booking ",data)
         const booking = await Booking.create(data)
             
         console.log("booking", booking)
