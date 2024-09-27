@@ -1,24 +1,24 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 import { MdOutlineStar } from "react-icons/md";
-import SideBar from '../SideBar/SideBar';
+import SideBar from "../SideBar/SideBar";
 import { MdDelete } from "react-icons/md";
-import {useToken} from '../../../../Contexts/TokenContext'
+import { useToken } from "../../../../Contexts/TokenContext";
 function AllBooking() {
   const [bookings, setBookings] = useState([]);
- const {accessToken } = useToken()
+  const { accessToken } = useToken();
   useEffect(() => {
     GetAllBooking();
   }, []);
 
   const GetAllBooking = () => {
-    fetch('https://tour-managment-three.vercel.app/api/booking/all-bookings', {
-      method: 'GET',
+    fetch("https://tour-managment-three.vercel.app/api/booking/all-bookings", {
+      method: "GET",
       headers: {
-        'Authorization': `Bearer ${accessToken }`
-      }
+        Authorization: `Bearer ${accessToken}`,
+      },
     })
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         console.log(data);
         setBookings(data.bookings || []);
       });
@@ -26,22 +26,21 @@ function AllBooking() {
 
   const handleDelete = (id) => {
     fetch(`https://tour-managment-three.vercel.app/api/booking/delete/${id}`, {
-      method: 'DELETE',
+      method: "DELETE",
       headers: {
-        'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
-      }
+        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
     })
-      .then(res => res.json())
+      .then((res) => res.json())
       .then(() => {
-       
-        setBookings(bookings.filter(booking => booking._id !== id));
+        setBookings(bookings.filter((booking) => booking._id !== id));
       });
   };
 
   return (
-    <div className='d-flex justify-content-around main-content'>
+    <div className="d-flex justify-content-around main-content">
       <SideBar />
-      <div className='container my-4'>
+      <div className="container my-4">
         <div className="table-responsive mx-auto my-5 shadow mb-5 bg-body rounded">
           <table className="table">
             <thead className="table-secondary">
@@ -58,8 +57,8 @@ function AllBooking() {
               </tr>
             </thead>
             <tbody>
-              {
-                Array.isArray(bookings) && bookings.map((booking, index) => (
+              {Array.isArray(bookings) &&
+                bookings.map((booking, index) => (
                   <tr key={index}>
                     <th scope="row">{index + 1}</th>
                     <td>{booking.name}</td>
@@ -70,19 +69,21 @@ function AllBooking() {
                     <td>{booking.GroupSize}</td>
                     <td>{booking.price * booking.GroupSize}</td>
                     <td>
-                      <button className="btn btn-danger" onClick={() => handleDelete(booking._id)}>
-                        <MdDelete className='fs-3' />
+                      <button
+                        className="btn btn-danger"
+                        onClick={() => handleDelete(booking._id)}
+                      >
+                        <MdDelete className="fs-3" />
                       </button>
                     </td>
                   </tr>
-                ))
-              }
+                ))}
             </tbody>
           </table>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default AllBooking;

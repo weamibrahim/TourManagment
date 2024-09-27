@@ -2,12 +2,8 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const stripePayment = async (req, res) => {
     console.log(req.body)
-    const {  price, nameOfTour, _id ,GroupSize,} = req.body;
+    const {  price, nameOfTour,GroupSize,} = req.body;
 
-    // Check if _id is valid
-    if (!_id) {
-        return res.status(400).send({ error: 'Missing _id parameter' });
-    }
 
     // Convert price to a number
     const unitAmount = Number(price) * 100;
@@ -18,7 +14,7 @@ const stripePayment = async (req, res) => {
             product_data: {
                 name: nameOfTour,
                 metadata: {
-                    id: _id,
+                
                     userId: req.body.userId,
                     tourId: req.body.tourId,
                     userName: req.body.name,
