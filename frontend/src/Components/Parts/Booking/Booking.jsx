@@ -30,6 +30,7 @@ function Booking() {
   const handleSubmit = async (event) => {
     const bookingDetails = {
       ...inputs,
+      tourId: tour._id,
       price: priceOfTour,
       nameOfTour: tour.title,
     };

@@ -5,8 +5,8 @@ const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
 const WebhookController = {};
 
 WebhookController.handleWebhook = async (req, res) => {
-//      console.log('STRIPE_SECRET_KEY:', process.env.STRIPE_SECRET_KEY);
-//   console.log('STRIPE_WEBHOOK_SECRET:', process.env.STRIPE_WEBHOOK_SECRET);
+     console.log('STRIPE_SECRET_KEY:', process.env.STRIPE_SECRET_KEY);
+  console.log('STRIPE_WEBHOOK_SECRET:', process.env.STRIPE_WEBHOOK_SECRET);
   
   const sig = req.headers['stripe-signature'];
   let event;
@@ -25,6 +25,9 @@ WebhookController.handleWebhook = async (req, res) => {
     try {
       // Retrieve line items from the session
       const lineItems = await stripe.checkout.sessions.listLineItems(session.id);
+
+      console.log('Line items:', lineItems.data);
+      console.log('Session metadata:', session.metadata);
 
       // Prepare booking data
       const bookingData = {

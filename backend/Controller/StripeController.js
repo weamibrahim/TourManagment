@@ -1,8 +1,10 @@
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const stripePayment = async (req, res) => {
-    // console.log(req.body)
-    const {  price, nameOfTour,GroupSize,} = req.body;
+  console.log(req.body)
+  const userID =req.user.userId
+
+    const { price, nameOfTour, GroupSize, phone, DateOfTour, tourId } = req.body;
 
 
     // Convert price to a number
@@ -13,14 +15,7 @@ const stripePayment = async (req, res) => {
             currency: "usd",
             product_data: {
                 name: nameOfTour,
-                metadata: {
-                
-                    userId: req.body.userId,
-                    tourId: req.body.tourId,
-                    userName: req.body.name,
-                    phone: req.body.phone,
-                    dateOfTour: req.body.DateOfTour,
-                },
+               
             },
             unit_amount: unitAmount,
         },
@@ -80,6 +75,14 @@ const stripePayment = async (req, res) => {
                 enabled: true,
             },
             line_items: [lineItem],
+            metadata: {
+                userId: userID,
+                tourId,
+                userName:req.body.name,
+                phone,
+                dateOfTour: DateOfTour,
+                
+            },
             mode: "payment",
             success_url: `${process.env.CLIENT_URL}/`,
             cancel_url: `${process.env.CLIENT_URL}/tours`,

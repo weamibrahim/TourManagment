@@ -20,9 +20,10 @@ const mongoURI = process.env.MONGO_URI;
 
 
 // Middleware
+app.use('/webhook', express.raw({ type: 'application/json' }), WebHookRoute);
 app.use(cors());
 app.use(express.json());
-app.use('/webhook', express.raw({ type: 'application/json' }), WebHookRoute);
+
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
