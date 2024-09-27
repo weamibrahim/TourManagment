@@ -8,6 +8,7 @@ import Tours from './Components/Pages/Tours/Tours';
 import TourDetails from './Components/Pages/TourDetails/TourDetails';
 import Register from './Components/Pages/Register/Register';
 import Login from './Components/Pages/Login/Login';
+import YourBooking from './Components/Pages/YourBooking/YourBooking';
 import ResultOfSearch from './Components/Pages/ResultOfSearch/ResultOfSearch';
 import Checkout from './Components/Pages/Checkout/Checkout';
 import Profile from './Components/Pages/Profile/profile';
@@ -18,6 +19,7 @@ import CreateTour from './Components/Pages/Dashboard/Tours/CreateTour/CreateTour
 import UpdateTour from './Components/Pages/Dashboard/Tours/UpdateTour/UpdateTour';
 import AllReviews from './Components/Pages/Dashboard/Reviews/AllReview/AllReview';
 import AllUser from './Components/Pages/Dashboard/Users/AllUser/AllUser';
+
 import  AllBooking from './Components/Pages/Dashboard/AllBooking/AllBooking';
 import NotFound from './Components/Pages/NotFound/NotFound';
 import { LoginProvider } from './Contexts/LoginContext';
@@ -65,6 +67,7 @@ function App() {
           <Route path="/register" element={<Register />} />
          <Route path="/profile" element={<Profile />} />
           <Route path="/updateprofile" element={<UpdateProfile />} />
+          <Route path="/yourbooking" element={<YourBooking />} />
           <Route path="/checkout" element={<Checkout />} />
 
           <Route path ="*" element={<NotFound />} />

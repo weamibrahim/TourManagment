@@ -8,6 +8,7 @@ const router = express.Router();
 
 
 router.get('/Booking/:id',verifyToken,BookingController.GetBooking)
+router.get('/BookingByUserID/:id',verifyToken,BookingController.GetBookingByUserID)
 router.post('/create/:id',verifyToken ,BookingController.CreateBooking)
 router.get('/all-bookings',verifyToken,verifyRole, BookingController.GetBookings)
 router.delete('/delete/:id',verifyToken,verifyRole, BookingController.DeleteBooking)

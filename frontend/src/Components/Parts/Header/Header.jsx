@@ -8,6 +8,7 @@ import { GiJourney } from "react-icons/gi";
 import "./Header.css"
 import { useLogin } from "../../../Contexts/LoginContext";
 import {  useNavigate } from 'react-router-dom';
+import { IoIosBookmark } from "react-icons/io";
 function Header() {
 const navigate = useNavigate();
   const {setIsLogin,IsLogin} = useLogin();
@@ -60,6 +61,9 @@ const isAdmin = userRole === "admin";
 <>
 <li className="nav-item">
           <NavLink to="/profile" className="nav-link" ><IoPersonSharp  className="fs-4 mx-1"/> Profile</NavLink>
+      </li>
+      <li className="nav-item">
+          <NavLink to="/yourbooking" className="nav-link" > <IoIosBookmark className="fs-4" />My Booking</NavLink>
       </li>
            <li className="nav-item">
            <button className="nav-link" onClick={handleLogout}><IoIosLogOut className="fs-4" /></button>

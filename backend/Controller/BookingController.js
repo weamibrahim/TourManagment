@@ -25,6 +25,17 @@ BookingController.GetBookings = async (req, res, next) => {
         next(err)
     }
 }
+// get booking by user ID 
+BookingController.GetBookingByUserID = async (req, res, next) => {
+    try {
+        const id = req.params.id
+        const booking = await Booking.find({ userID: id }).populate('tourID').populate('userID')
+        console.log(booking)
+        res.status(200).json({ booking })
+    } catch (err) {
+        next(err)
+    }
+}
 BookingController.GetBooking = async (req, res, next) => {
     try {
         const id = req.params.id
