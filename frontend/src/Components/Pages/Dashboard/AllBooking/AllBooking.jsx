@@ -65,7 +65,7 @@ function AllBooking() {
                     <td>{booking.phone}</td>
                     <td>{booking.nameOfTour}</td>
                     <td>{booking.price}</td>
-                    <td>{new Date(booking.dateOfTour).toLocaleDateString()}</td>
+                    <td>{new Date(booking.DateOfTour).toLocaleDateString()}</td>
                     <td>{booking.GroupSize}</td>
                     <td>{booking.price * booking.GroupSize}</td>
                     <td>
