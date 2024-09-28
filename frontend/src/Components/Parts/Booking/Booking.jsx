@@ -1,6 +1,6 @@
 import { useState } from "react";
 ///import { useNavigate } from 'react-router-dom';
-import Checkout from "../../Pages/Checkout/Checkout";
+
 import { useToken } from "../../../Contexts/TokenContext";
 import { useTourData } from "../../../Contexts/TourContext";
 function Booking() {
