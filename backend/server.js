@@ -8,7 +8,7 @@ const tourRoutes= require("./Routes/TourRoutes")
 const ReviewRoutes= require("./Routes/ReviewRoutes")
 const BookingRoutes= require("./Routes/BookingRoutes")
 const StripeRoutes=require("./Routes/StripeRoutes")
-
+const FavoriteRoute = require('./Routes/FavoriteRoute');
 const WebHookRoute = require('./Routes/WebHookRoutes');
 const path = require("path");
 // Load environment variables from .env file
@@ -35,6 +35,7 @@ app.use("/api/users",userRoutes);
 app.use("/api/tour",tourRoutes)
 app.use("/api/review",ReviewRoutes)
 app.use("/api/booking",BookingRoutes)
+app.use("/api/favorite",FavoriteRoute)
 app.use("/api/stripe",StripeRoutes)
 
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
