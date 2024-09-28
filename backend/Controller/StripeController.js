@@ -85,7 +85,7 @@ const stripePayment = async (req, res) => {
             },
             mode: "payment",
             success_url: `${process.env.CLIENT_URL}/`,
-            cancel_url: `${process.env.CLIENT_URL}/tours`,
+            cancel_url: `${process.env.CLIENT_URL}/yourbooking`,
         });
 
        // console.log("Stripe session created:", session);
