@@ -10,7 +10,7 @@ import Register from './Components/Pages/Register/Register';
 import Login from './Components/Pages/Login/Login';
 import YourBooking from './Components/Pages/YourBooking/YourBooking';
 import ResultOfSearch from './Components/Pages/ResultOfSearch/ResultOfSearch';
-import Checkout from './Components/Pages/Checkout/Checkout';
+
 import Profile from './Components/Pages/Profile/profile';
 import UpdateProfile from './Components/Pages/UpdateProfile/UpdateProfile';
 import Dashboard from './Components/Pages/Dashboard/Dashboard';
@@ -68,7 +68,7 @@ function App() {
          <Route path="/profile" element={<Profile />} />
           <Route path="/updateprofile" element={<UpdateProfile />} />
           <Route path="/yourbooking" element={<YourBooking />} />
-          <Route path="/checkout" element={<Checkout />} />
+      
 
           <Route path ="*" element={<NotFound />} />
 
