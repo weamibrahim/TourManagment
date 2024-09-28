@@ -1,29 +1,38 @@
 import { useState, useEffect } from "react";
-import { CiHeart } from "react-icons/ci";
+
 import { useToken } from "../../../Contexts/TokenContext";
 import { useFavorite } from "../../../Contexts/FavoriteContext";
+
 const ButtonFavorite = ({ tourId }) => {
   const { accessToken } = useToken();
-  const { favorite, setFavorite } = useFavorite();
+  const { favorite } = useFavorite();
   const [isFavorite, setIsFavorite] = useState(false);
 
-  console.log(favorite);
-  const isAlreadyFavorite = favorite.some((tour) => tour.tourId_id === tourId);
-
-  setIsFavorite(isAlreadyFavorite);
+  useEffect(() => {
+    console.log(favorite);
+    const isAlreadyFavorite = favorite.some(
+      (tour) => tour.tourId._id === tourId
+    );
+    console.log(isAlreadyFavorite);
+    setIsFavorite(isAlreadyFavorite);
+  }, [favorite, tourId]);
 
   const toggleFavorite = async () => {
     try {
-      const response = await fetch(`https://tour-managment-three.vercel.app/api/favorite/${tourId}`, {
-        method: isFavorite ? "DELETE" : "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${accessToken}`,
-        },
-      });
+      const response = await fetch(
+        `https://tour-managment-three.vercel.app/api/favorite/${tourId}`,
+        {
+          method: isFavorite ? "DELETE" : "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
 
       if (response.ok) {
         setIsFavorite(!isFavorite);
+        const data = await response.json();
       } else {
         const errorData = await response.json();
         console.error("Error:", errorData.message);
@@ -34,7 +43,7 @@ const ButtonFavorite = ({ tourId }) => {
   };
 
   return (
-    <button onClick={toggleFavorite}>
+    <button onClick={toggleFavorite} className="bg-transparent border-0">
       {isFavorite ? (
         <svg
           className="mt-3"

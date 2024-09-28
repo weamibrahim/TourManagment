@@ -12,9 +12,9 @@ const verifyToken = (req, res, next) => {
 
   const token = authHeader.split(' ')[1].replace(/^"(.*)"$/, '$1');
   jwt.verify(token, accessTokenSecret, (err, decodedToken) => {
-    console.log('accessTokenSecret:', accessTokenSecret);
-      console.log('authHeader:', authHeader);
-      console.log('token:', token);
+   // console.log('accessTokenSecret:', accessTokenSecret);
+     // console.log('authHeader:', authHeader);
+      //console.log('token:', token);
  
     if (err) {
       console.error('Error verifying token:', err);
@@ -25,6 +25,7 @@ const verifyToken = (req, res, next) => {
    
 
     req.user = decodedToken;
+    console.log('req.user:', req.user);
     next();
   });
 };

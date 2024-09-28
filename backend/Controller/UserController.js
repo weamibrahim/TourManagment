@@ -16,8 +16,8 @@ userController.register = async (req, res, next) => {
       return res.status(400).json({ message: error.details[0].message });
     }
       //console.log('accessTokenSecret:', accessTokenSecret);
-      console.log( user);
-      console.log('req.body:', req.body);
+      //console.log( user);
+      //console.log('req.body:', req.body);
   
       const existingUser = await User.findOne({ email });
       if (existingUser) {

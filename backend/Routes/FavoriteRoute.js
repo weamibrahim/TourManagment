@@ -5,7 +5,7 @@ const { verifyToken } = require("../middleware/authToken");
 const FavoriteController = require("../Controller/FavoriteController");
 
 // Define the routes
-router.get("/", verifyToken,FavoriteController.getFavorites);
+router.get("/all", verifyToken,FavoriteController.getFavorites);
 router.post("/:tourId",verifyToken ,FavoriteController.createFavorite);
 router.delete("/:tourId",verifyToken ,FavoriteController.deleteFavorite);
 

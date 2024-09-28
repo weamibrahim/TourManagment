@@ -5,15 +5,17 @@ const FavoriteController = {};
 // Create a new favorite
 FavoriteController.createFavorite = async (req, res) => {
     try {
-        console.log(req.params);
-        console.log(req.body);
+    
+      
         const tourId= req.params.tourId;
         const userId=req.user.userId
+        
         const favorite = await Favorite.findOne({ userId, tourId });
         if (favorite) {
             return res.status(400).json({ message: "Favorite already exists" });
         }
         const newFavorite = await Favorite.create({ userId, tourId });
+        console.log(newFavorite);
         res.status(201).json({ newFavorite, message: "Favorite created successfully" });
     } catch (error) {
         res.status(400).json({ message: error.message });
@@ -25,6 +27,7 @@ FavoriteController.getFavorites = async (req, res) => {
     try {
         const userId=req.user.userId
         const favorites = await Favorite.find({userId}).populate("tourId");
+        
         res.json(favorites);
     } catch (error) {   
         res.status(500).json({ message: error.message });
