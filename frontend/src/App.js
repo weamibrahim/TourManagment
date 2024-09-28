@@ -19,12 +19,13 @@ import CreateTour from './Components/Pages/Dashboard/Tours/CreateTour/CreateTour
 import UpdateTour from './Components/Pages/Dashboard/Tours/UpdateTour/UpdateTour';
 import AllReviews from './Components/Pages/Dashboard/Reviews/AllReview/AllReview';
 import AllUser from './Components/Pages/Dashboard/Users/AllUser/AllUser';
-
+import Favorite from './Components/Pages/Favorite/Favorite';
 import  AllBooking from './Components/Pages/Dashboard/AllBooking/AllBooking';
 import NotFound from './Components/Pages/NotFound/NotFound';
 import { LoginProvider } from './Contexts/LoginContext';
 import { TokenProvider } from './Contexts/TokenContext';
 import { TourProvider } from './Contexts/TourContext';
+import {FavoriteProvider} from './Contexts/FavoriteContext'
 import { AnimatePresence } from 'framer-motion';
 
 //import { useState ,useEffect} from "react";
@@ -41,6 +42,7 @@ function App() {
       <LoginProvider>
       <TokenProvider>
       <TourProvider>
+        <FavoriteProvider>
       {!isDashboard && <Header />}
 <AnimatePresence mode='wait'>
         <Routes location={location} key={location.pathname}>
@@ -63,6 +65,7 @@ function App() {
           <Route path="/tours" element={<Tours />} />
           <Route path="/tours/:id" element={loggedIn ? <TourDetails />: <Navigate to="/login" />} />
           <Route path="/search" element={<ResultOfSearch />} />
+          <Route path="/favorite" element={<Favorite />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
          <Route path="/profile" element={<Profile />} />
@@ -77,6 +80,7 @@ function App() {
         </Routes>
         </AnimatePresence>
         {!isDashboard && <Footer />}
+        </FavoriteProvider>
       </TourProvider>
      </TokenProvider>
       </LoginProvider>

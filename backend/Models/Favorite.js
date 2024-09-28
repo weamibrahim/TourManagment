@@ -6,7 +6,7 @@ const favoriteSchema = new mongoose.Schema({
         ref: "User",
         required: true,
     },
-    foodId: {
+    tourId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Tour",
         required: true,

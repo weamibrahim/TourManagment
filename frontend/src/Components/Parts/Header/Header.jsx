@@ -70,7 +70,7 @@ function Header() {
                     <>
                       <li className="nav-item">
                         <NavLink to="/dashboard" className="nav-link">
-                          {" "}
+                          
                           <MdDashboard className="fs-4 mx-1" />
                           Dashboard
                         </NavLink>
@@ -80,13 +80,7 @@ function Header() {
                           <IoPersonSharp className="fs-4 mx-1" /> Profile
                         </NavLink>
                       </li>
-                      <li className="nav-item">
-                        <NavLink to="/yourbooking" className="nav-link">
-                          {" "}
-                          <IoIosBookmark className="fs-4" />
-                          My Booking
-                        </NavLink>
-                      </li>
+
                       <li className="nav-item">
                         <button className="nav-link" onClick={handleLogout}>
                           <IoIosLogOut className="fs-4" />
@@ -102,10 +96,33 @@ function Header() {
                       </li>
                       <li className="nav-item">
                         <NavLink to="/yourbooking" className="nav-link">
-                          {" "}
                           <IoIosBookmark className="fs-4" />
                           My Booking
                         </NavLink>
+                      </li>
+                      <li className="nav-item">
+                       <NavLink to="/favorite" className="nav-link">
+                       <svg
+                        className=""
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="#f8f9fa"
+                          viewBox="0 0 24 24"
+                          stroke="red" 
+                          strokeWidth="1.5" 
+                          style={{
+                            width: "24px",
+                            height: "24px",
+                            color: "red",
+                          }}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                          />
+                          </svg>
+                       </NavLink>
+                       
                       </li>
                       <li className="nav-item">
                         <button className="nav-link" onClick={handleLogout}>

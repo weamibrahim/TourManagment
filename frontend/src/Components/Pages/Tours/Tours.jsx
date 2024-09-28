@@ -6,21 +6,27 @@ import Search from "../../Parts/Search/Search";
 import { CiLocationOn } from "react-icons/ci";
 import { Helmet } from "react-helmet-async";
 import PageTransition from "../../Parts/Animation/PageTransition";
+import ButtonFavorite from "../../Parts/ButtonFavorite/ButtonFavorite";
 
 function Tours() {
+
   const [page, setPage] = useState(1);
 
   const [tours, setTours] = useState([]);
   useEffect(() => {
-    fetch(`https://tour-managment-three.vercel.app/api/tour/tours?page=${page}`)
-      .then((res) => res.json())
-      .then(
-        (data) => {
-          setTours(data);
-        },
-        [page]
-      );
+   getAllTours();
   });
+
+  const getAllTours = () => {
+    fetch(`https://tour-managment-three.vercel.app/api/tour/tours?page=${page}`)
+    .then((res) => res.json())
+    .then(
+      (data) => {
+        setTours(data);
+      })
+  }
+
+  
   const handleNextPage = () => {
     setPage(page + 1);
   };
@@ -56,12 +62,19 @@ function Tours() {
                     }
                   />
                   <div className="card-body">
+                    <div className="d-flex justify-content-between">
+                      <div>
                     <h4>
-                      {" "}
+                     
                       <CiLocationOn className="fs-4 text-warning " />
                       <span className="ms-1">{tour.city}</span>
                     </h4>
                     <h5 className="card-title">{tour.title}</h5>
+                    </div>
+                   <div>
+                    <ButtonFavorite tourId={tour._id} />
+                    </div>
+                    </div>
                     <div className="d-flex align-items-center justify-content-between">
                       <h6 className="card-text mb-0 ">
                         <span className="text-warning">${tour.price}</span>/Per

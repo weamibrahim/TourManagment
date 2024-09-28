@@ -23,7 +23,7 @@ FavoriteController.createFavorite = async (req, res) => {
 // Get all favorites for a user
 FavoriteController.getFavorites = async (req, res) => {
     try {
-        const { userId } = req.params;
+        const userId=req.user.userId
         const favorites = await Favorite.find({userId}).populate("tourId");
         res.json(favorites);
     } catch (error) {   
