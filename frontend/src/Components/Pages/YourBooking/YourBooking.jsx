@@ -10,7 +10,7 @@ function YourBooking() {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const response = await axios.get(`http://localhost:7000/api/booking/BookingByUserID/${userID}`, {
+        const response = await axios.get(`https://tour-managment-three.vercel.app/api/booking/BookingByUserID/${userID}`, {
           headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${accessToken}`,
