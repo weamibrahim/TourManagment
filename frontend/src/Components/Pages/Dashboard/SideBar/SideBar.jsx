@@ -26,19 +26,19 @@ function SideBar() {
   return (
     <>
       <div>
-        <div className="d-md-none d-block">
+        <div className="d-md-none d-block bg">
           <button
             type="button"
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasExample"
             aria-controls="offcanvasExample"
-            className="rounded-2 border-0 m-2"
+            className="rounded-2 m-2"
           >
-            <CiMenuBurger size={40} className="p-1" />
+            <CiMenuBurger size={30} className="p-2 "  />
           </button>
 
           <div
-            class="offcanvas offcanvas-start w-75"
+            class="offcanvas offcanvas-start w-75 bg-body-tertiary"
             tabindex="-1"
             id="offcanvasExample"
             aria-labelledby="offcanvasExampleLabel"
@@ -112,7 +112,7 @@ function SideBar() {
                   Users
                 </NavLink>
               </div>
-              <div className="fs-5 px-3 py-2 d-flex align-items-center">
+              <div className="fs-5 px-3 py-2 d-flex align-items-center mb-5">
                 <VscPreview />
                 <NavLink
                   to="/dashboard/bookings"
@@ -132,9 +132,10 @@ function SideBar() {
         </div>
 
         <div className="d-none d-md-block">
-        <div>
+          
+        <div >
 
-            <div>
+         
             <motion.svg
               className=""
               viewBox="0 0 500 200"
@@ -151,6 +152,8 @@ function SideBar() {
                 fill="#6c63ff"
               />
             </motion.svg>
+            <div className="px-3">
+            <div >
               <div className="d-flex justify-content-between align-items-center">
                 
                 <NavLink
@@ -199,21 +202,22 @@ function SideBar() {
                   Users
                 </NavLink>
               </div>
-              <div className="fs-5 px-3 py-2 d-flex align-items-center">
+              <div className="fs-5 px-3 py-2 d-flex align-items-center mb-5">
                 <VscPreview />
                 <NavLink
                   to="/dashboard/bookings"
-                  className="text-decoration-none text-black mx-3 my-2"
+                  className="text-decoration-none text-black mx-3 my-1 "
                 >
                   Bookings
                 </NavLink>
               </div>
 
-              <div className="fs-5 px-3 py-2 d-flex align-items-center mt-auto">
+              <div className="fs-5 px-3 py-2  d-flex align-items-center mt-auto">
                 <button className="nav-link" onClick={handleLogout}>
                   <IoIosLogOut className="fs-4 my-5" /> Logout
                 </button>
               </div>
+            </div>
             </div>
             </div>
           </div>
