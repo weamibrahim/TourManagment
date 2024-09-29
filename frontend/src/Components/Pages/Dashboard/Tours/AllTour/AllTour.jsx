@@ -75,7 +75,7 @@ function AllTour() {
                   <td>
                     <img
                       src={
-                        "https://tour-managment-three.vercel.app/images/" +
+                       
                         tour.photo
                       }
                       style={{ width: "100px" }}

@@ -5,13 +5,11 @@ const TourController ={}
 
 
 TourController.GetAllTour= async (req, res, next) => {
-
 try{
     const page = parseInt(req.query.page) || 1;
     const limit = 6
     const startIndex = (page - 1) * limit;
 const Tours =await Tour.find().skip(startIndex).limit(limit);
-
 //console.log(Tours)
 return res.status(200).json(Tours);
 
