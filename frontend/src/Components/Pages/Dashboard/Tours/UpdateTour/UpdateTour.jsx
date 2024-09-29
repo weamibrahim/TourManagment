@@ -6,7 +6,7 @@ import PageTransition from "../../../../Parts/Animation/PageTransition";
 import { useToken } from "../../../../../Contexts/TokenContext";
 function UpdateTour() {
   const navigate = useNavigate();
-  const { id } = useParams(); // Get the tour ID from the URL parameters
+  const { id } = useParams(); 
   const { accessToken } = useToken();
   const [inputs, setInputs] = useState({
     title: "",

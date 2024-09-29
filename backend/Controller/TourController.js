@@ -72,7 +72,8 @@ TourController.CreateTour = async (req, res, next) => {
         const newTour = new Tour({
             title,
             desc,
-            photo: image.filename,
+            // photo: image.filename,
+            photo:image.path,
             address,
             distance,
             city,
@@ -104,12 +105,12 @@ TourController.UpdateTour = async (req, res, next) => {
     try {
         console.log(req.body)
         const tourId = req.params.id;
-        const tour = req.body;
-        const image = req.file;
+        let image=req.body.image
+       if(req.file){
+        image=req.file.path 
+       }
 
-        if (image) {
-            tour.photo = image.filename;
-        }
+        const tour = {...req.body, photo:image};
 
         const updateTour = await Tour.findByIdAndUpdate(tourId, tour, { new: true });
         console.log(updateTour)
