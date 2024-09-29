@@ -32,7 +32,7 @@ function SideBar() {
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasExample"
             aria-controls="offcanvasExample"
-            className="rounded-2 m-2"
+            className="rounded-2 mx-2 mt-2"
           >
             <CiMenuBurger size={30} className="p-2 "  />
           </button>

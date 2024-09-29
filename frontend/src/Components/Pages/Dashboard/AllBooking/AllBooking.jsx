@@ -38,7 +38,7 @@ function AllBooking() {
   };
 
   return (
-    <div className="d-flex justify-content-around ">
+    <div className="d-md-flex justify-content-around ">
       <SideBar />
       <div className="container my-4">
         <div className="table-responsive mx-auto my-5 shadow mb-5 bg-body rounded">

@@ -10,7 +10,7 @@ const ButtonFavorite = ({ tourId }) => {
 
   useEffect(() => {
     console.log(favorite);
-    const isAlreadyFavorite = favorite.some(
+    const isAlreadyFavorite =Array.isArray(favorite) && favorite.some(
       (tour) => tour.tourId._id === tourId
     );
     console.log(isAlreadyFavorite);

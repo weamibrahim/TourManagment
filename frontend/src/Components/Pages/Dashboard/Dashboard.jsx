@@ -17,7 +17,7 @@ function Dashboard() {
         <title>Dashboard</title>
       </Helmet>
       <div  >
-        <div className=' d-flex justify-content-between' >
+        <div className='d-md-flex justify-content-between' >
         
             <SideBar />
         

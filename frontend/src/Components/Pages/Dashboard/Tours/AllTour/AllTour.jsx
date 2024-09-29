@@ -41,12 +41,12 @@ function AllTour() {
       });
   };
   return (
-    <div className="d-flex justify-content-around ">
+    <div className="d-md-flex justify-content-around ">
       <SideBar />
       <Helmet>
         <title>All Tour</title>
       </Helmet>
-      <div className="container my-4">
+      <div className="container my-1">
         <button className="btn btn-primary mt-5">
           <NavLink
             className="text-white text-decoration-none"
