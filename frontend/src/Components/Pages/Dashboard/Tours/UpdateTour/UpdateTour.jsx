@@ -6,7 +6,7 @@ import PageTransition from "../../../../Parts/Animation/PageTransition";
 import { useToken } from "../../../../../Contexts/TokenContext";
 function UpdateTour() {
   const navigate = useNavigate();
-  const { id } = useParams(); 
+  const { id } = useParams();
   const { accessToken } = useToken();
   const [inputs, setInputs] = useState({
     title: "",
@@ -92,7 +92,7 @@ function UpdateTour() {
   };
 
   return (
-    <div className="d-flex main-content">
+    <div className="d-flex ">
       <SideBar />
       <form className="form m-auto my-4">
         <h1 className="text-center">Update Tour</h1>

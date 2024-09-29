@@ -41,7 +41,7 @@ function AllTour() {
       });
   };
   return (
-    <div className="d-flex justify-content-around main-content">
+    <div className="d-flex justify-content-around ">
       <SideBar />
       <Helmet>
         <title>All Tour</title>
@@ -73,13 +73,7 @@ function AllTour() {
                 <tr>
                   <th scope="row">{index + 1}</th>
                   <td>
-                    <img
-                      src={
-                       
-                        tour.photo
-                      }
-                      style={{ width: "100px" }}
-                    />
+                    <img src={tour.photo} style={{ width: "100px" }} />
                   </td>
                   <td>{tour.title}</td>
                   <td>${tour.price}</td>
