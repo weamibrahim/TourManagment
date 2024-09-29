@@ -21,7 +21,7 @@ function Favorite() {
                   <img
                     className="img-fluid rounded-4 card-img-top"
                     src={
-                      "https://tour-managment-three.vercel.app/images/" +
+                       
                       tour.tourId.photo
                     }
                   />

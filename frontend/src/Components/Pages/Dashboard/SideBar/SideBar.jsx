@@ -26,7 +26,7 @@ function SideBar() {
   return (
     <>
       <div>
-        <div className="d-md-none d-sm-block">
+        <div className="d-md-none d-block">
           <button
             type="button"
             data-bs-toggle="offcanvas"
