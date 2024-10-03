@@ -3,6 +3,7 @@ import { MdOutlineStar } from "react-icons/md";
 import SideBar from "../../SideBar/SideBar";
 import { MdDelete } from "react-icons/md";
 import { useToken } from "../../../../../Contexts/TokenContext";
+import PageTransition from "../../../../Parts/Animation/PageTransition";
 function AllReview() {
   const [reviews, setReviews] = useState([]);
   const { accessToken } = useToken();
@@ -78,4 +79,4 @@ function AllReview() {
   );
 }
 
-export default AllReview;
+export default PageTransition(AllReview);

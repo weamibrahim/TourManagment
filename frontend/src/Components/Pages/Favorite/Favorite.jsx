@@ -3,6 +3,7 @@ import { useFavorite } from "../../../Contexts/FavoriteContext";
 import { NavLink } from "react-router-dom";
 import { CiLocationOn } from "react-icons/ci";
 import { Helmet } from "react-helmet-async";
+import PageTransition from "../../Parts/Animation/PageTransition"
 
 function Favorite() {
   const { favorite } = useFavorite();
@@ -62,4 +63,4 @@ function Favorite() {
   );
 }
 
-export default Favorite;
+export default PageTransition(Favorite);

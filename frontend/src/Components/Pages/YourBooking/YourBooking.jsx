@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useToken } from "../../../Contexts/TokenContext";
+import PageTransition from "../../Parts/Animation/PageTransition";
 
 function YourBooking() {
   const { accessToken } = useToken();
@@ -73,4 +74,4 @@ function YourBooking() {
   );
 }
 
-export default YourBooking;
+export default PageTransition(YourBooking);

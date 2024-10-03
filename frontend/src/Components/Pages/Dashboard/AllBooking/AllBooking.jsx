@@ -3,6 +3,7 @@ import { MdOutlineStar } from "react-icons/md";
 import SideBar from "../SideBar/SideBar";
 import { MdDelete } from "react-icons/md";
 import { useToken } from "../../../../Contexts/TokenContext";
+import PageTransition from "../../../Parts/Animation/PageTransition";
 function AllBooking() {
   const [bookings, setBookings] = useState([]);
   const { accessToken } = useToken();
@@ -86,4 +87,4 @@ function AllBooking() {
   );
 }
 
-export default AllBooking;
+export default PageTransition(AllBooking);
