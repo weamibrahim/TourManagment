@@ -26,6 +26,7 @@ import { LoginProvider } from './Contexts/LoginContext';
 import { TokenProvider } from './Contexts/TokenContext';
 import { TourProvider } from './Contexts/TourContext';
 import {FavoriteProvider} from './Contexts/FavoriteContext'
+import { ToastProvider } from './Contexts/ToastContext';
 import { AnimatePresence } from 'framer-motion';
 
 //import { useState ,useEffect} from "react";
@@ -43,6 +44,7 @@ function App() {
       <TokenProvider>
       <TourProvider>
         <FavoriteProvider>
+      <ToastProvider>
       {!isDashboard && <Header />}
 <AnimatePresence mode='wait'>
         <Routes location={location} key={location.pathname}>
@@ -80,6 +82,8 @@ function App() {
         </Routes>
         </AnimatePresence>
         {!isDashboard && <Footer />}
+
+        </ToastProvider>
         </FavoriteProvider>
       </TourProvider>
      </TokenProvider>

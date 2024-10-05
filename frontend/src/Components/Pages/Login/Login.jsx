@@ -5,9 +5,12 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useLogin } from "../../../Contexts/LoginContext";
 import PageTransition from "../../Parts/Animation/PageTransition";
+import { useToast } from "../../../Contexts/ToastContext";
 const Login = () => {
   const navigate = useNavigate();
   const { setIsLogin } = useLogin();
+
+  const { showToast } = useToast();
 
   const validationSchema = Yup.object({
     email: Yup.string().email("Invalid email address").required("Required"),
@@ -31,11 +34,14 @@ const Login = () => {
 
       const data = await response.json();
       if (data.status === "success") {
-        navigate("/");
+        
         localStorage.setItem("accessToken", JSON.stringify(data.accessToken));
         localStorage.setItem("user", JSON.stringify(data.user));
         setIsLogin(true);
         if (data.user.role === "admin") navigate("/dashboard");
+        navigate("/");
+
+        showToast(data.message, "success");
       } else {
         setErrors({ serverError: data.message });
       }

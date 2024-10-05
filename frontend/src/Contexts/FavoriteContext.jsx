@@ -23,7 +23,7 @@ export const FavoriteProvider = ({ children }) => {
         }
       );
       const data = await response.json();
-      console.log("Fetched favorites:", data);
+     // console.log("Fetched favorites:", data);
       setFavorite(data || []);
     } catch (error) {
       console.error("Error fetching favorites:", error);

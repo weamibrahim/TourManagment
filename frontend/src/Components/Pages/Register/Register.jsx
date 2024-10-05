@@ -5,8 +5,11 @@ import { Helmet } from "react-helmet-async";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import PageTransition from "../../Parts/Animation/PageTransition";
+import { useToast } from "../../../Contexts/ToastContext";
 function Register() {
   const navigate = useNavigate();
+
+  const { showToast } = useToast();
 
   const validationSchema = Yup.object({
     name: Yup.string().required("Required"),
@@ -32,6 +35,7 @@ function Register() {
       console.log(data);
       if (data.message === "User created successfully") {
         navigate("/login");
+        showToast(data.message, "success");
       } else {
         setErrors({ serverError: data.message });
       }

@@ -40,7 +40,7 @@ FavoriteController.deleteFavorite = async (req, res) => {
         const tourId= req.params.tourId;
         const userId=req.user.userId
         const deletedFavorite = await Favorite.findOneAndDelete({ userId, tourId });
-        res.json(deletedFavorite);
+        res.json({ deletedFavorite, message: "Favorite deleted successfully" });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }

@@ -2,11 +2,14 @@ import { useState, useEffect } from "react";
 
 import { useToken } from "../../../Contexts/TokenContext";
 import { useFavorite } from "../../../Contexts/FavoriteContext";
+import { useToast } from "../../../Contexts/ToastContext";
 
 const ButtonFavorite = ({ tourId }) => {
   const { accessToken } = useToken();
   const { favorite } = useFavorite();
   const [isFavorite, setIsFavorite] = useState(false);
+
+  const { showToast } = useToast();
 
   useEffect(() => {
     console.log(favorite);
@@ -33,6 +36,8 @@ const ButtonFavorite = ({ tourId }) => {
       if (response.ok) {
         setIsFavorite(!isFavorite);
         const data = await response.json();
+        showToast(data.message, "info");
+
       } else {
         const errorData = await response.json();
         console.error("Error:", errorData.message);
