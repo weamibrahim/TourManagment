@@ -4,7 +4,9 @@ import SideBar from "../SideBar/SideBar";
 import { MdDelete } from "react-icons/md";
 import { useToken } from "../../../../Contexts/TokenContext";
 import PageTransition from "../../../Parts/Animation/PageTransition";
+import { useToast } from "../../../../Contexts/ToastContext";
 function AllBooking() {
+  const{showToast}=useToast()
   const [bookings, setBookings] = useState([]);
   const { accessToken } = useToken();
   useEffect(() => {
@@ -26,14 +28,16 @@ function AllBooking() {
   };
 
   const handleDelete = (id) => {
-    fetch(`https://tour-managment-three.vercel.app/api/booking/delete/${id}`, {
+  fetch(`https://tour-managment-three.vercel.app/api/booking/delete/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
     })
       .then((res) => res.json())
-      .then(() => {
+      .then((data) => {
+        console.log(data);
+        showToast(data.message, "success");
         setBookings(bookings.filter((booking) => booking._id !== id));
       });
   };

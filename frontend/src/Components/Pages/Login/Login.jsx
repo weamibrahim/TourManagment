@@ -38,8 +38,12 @@ const Login = () => {
         localStorage.setItem("accessToken", JSON.stringify(data.accessToken));
         localStorage.setItem("user", JSON.stringify(data.user));
         setIsLogin(true);
-        if (data.user.role === "admin") navigate("/dashboard");
-        navigate("/");
+        if (data.user.role === "admin"){ navigate("/dashboard")}
+        else{
+          navigate("/");
+        }
+       
+        
 
         showToast(data.message, "success");
       } else {
@@ -83,7 +87,7 @@ const Login = () => {
                       <ErrorMessage
                         name="email"
                         component="div"
-                        className="alert alert-danger my-2"
+                        className="alert alert-danger my-2 "
                       />
                     </div>
                     <div className="mb-3 px-5">
@@ -102,7 +106,7 @@ const Login = () => {
                       />
                     </div>
                     {errors.serverError && (
-                      <div className="alert alert-danger my-2">
+                      <div className="alert  alert-danger my-2">
                         {errors.serverError}
                       </div>
                     )}

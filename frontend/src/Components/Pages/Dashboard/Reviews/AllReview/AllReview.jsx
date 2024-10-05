@@ -4,7 +4,9 @@ import SideBar from "../../SideBar/SideBar";
 import { MdDelete } from "react-icons/md";
 import { useToken } from "../../../../../Contexts/TokenContext";
 import PageTransition from "../../../../Parts/Animation/PageTransition";
+import { useToast } from "../../../../../Contexts/ToastContext";
 function AllReview() {
+  const{showToast}=useToast()
   const [reviews, setReviews] = useState([]);
   const { accessToken } = useToken();
   useEffect(() => {
@@ -28,7 +30,8 @@ function AllReview() {
     })
       .then((res) => res.json())
 
-      .then(() => {
+      .then((data) => {
+        showToast(data.massage, "success");
         setReviews(reviews.filter((review) => review._id !== id));
       });
   };

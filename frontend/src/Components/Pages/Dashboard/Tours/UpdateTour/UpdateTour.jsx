@@ -4,7 +4,9 @@ import { useNavigate, useParams } from "react-router-dom";
 import SideBar from "../../SideBar/SideBar";
 import PageTransition from "../../../../Parts/Animation/PageTransition";
 import { useToken } from "../../../../../Contexts/TokenContext";
+import { useToast } from "../../../../../Contexts/ToastContext";
 function UpdateTour() {
+  const{showToast}=useToast()
   const navigate = useNavigate();
   const { id } = useParams();
   const { accessToken } = useToken();
@@ -84,6 +86,7 @@ function UpdateTour() {
           if (res.status === 200) {
             console.log("Tour updated successfully");
             navigate("/dashboard/tours");
+            showToast(res.data.message, "success");
           }
         });
     } catch (err) {

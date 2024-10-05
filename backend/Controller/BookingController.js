@@ -51,7 +51,7 @@ BookingController.DeleteBooking = async (req, res, next) => {
         const id = req.params.id
         const booking = await Booking.findByIdAndDelete(id)
         console.log(booking)
-        res.status(200).json({ booking })
+        res.status(200).json({ booking ,message:"booking deleted successfully"})
     } catch (err) {
         next(err)
     }

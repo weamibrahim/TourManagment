@@ -4,7 +4,9 @@ import { useNavigate } from "react-router-dom";
 import SideBar from "../../SideBar/SideBar";
 import PageTransition from "../../../../Parts/Animation/PageTransition";
 import { useToken } from "../../../../../Contexts/TokenContext";
+import { useToast } from "../../../../../Contexts/ToastContext";
 function CreateTour() {
+  const{showToast}=useToast()
   const navigate = useNavigate();
   const { accessToken } = useToken();
   const [inputs, setInputs] = useState({
@@ -51,6 +53,8 @@ function CreateTour() {
         .then((res) => {
           if (res.status === 200) {
             console.log("Tour created successfully");
+            //console.log(res);
+            showToast(res.data.message, "success");
             navigate("/dashboard/tours");
           }
         });

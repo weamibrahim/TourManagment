@@ -3,8 +3,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PageTransition from "../../Parts/Animation/PageTransition";
 import { useToken } from "../../../Contexts/TokenContext";
+import { useToast } from "../../../Contexts/ToastContext";
 function UpdateProfile() {
   const navigate = useNavigate();
+  const {showToast} = useToast();
   let user = JSON.parse(localStorage.getItem("user"));
   const { accessToken } = useToken();
   const [inputs, setInputs] = useState({
@@ -37,6 +39,7 @@ function UpdateProfile() {
         if (data.message === "User updated successfully") {
           localStorage.setItem("user", JSON.stringify(data.user));
           navigate("/profile");
+          showToast(data.message, "success");
         }
       });
   };

@@ -28,6 +28,7 @@ import { TourProvider } from './Contexts/TourContext';
 import {FavoriteProvider} from './Contexts/FavoriteContext'
 import { ToastProvider } from './Contexts/ToastContext';
 import { AnimatePresence } from 'framer-motion';
+import { ToastContainer } from 'react-toastify';
 
 //import { useState ,useEffect} from "react";
 
@@ -45,6 +46,7 @@ function App() {
       <TourProvider>
         <FavoriteProvider>
       <ToastProvider>
+      <ToastContainer />
       {!isDashboard && <Header />}
 <AnimatePresence mode='wait'>
         <Routes location={location} key={location.pathname}>

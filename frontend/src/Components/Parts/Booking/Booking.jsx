@@ -1,10 +1,11 @@
 import { useState } from "react";
 ///import { useNavigate } from 'react-router-dom';
-
+import { useToast } from "../../../Contexts/ToastContext";
 import { useToken } from "../../../Contexts/TokenContext";
 import { useTourData } from "../../../Contexts/TourContext";
 function Booking() {
   const { tour } = useTourData();
+  const {showToast} = useToast();
   console.log(tour);
   const priceOfTour = tour.price;
   // const [dataOfBooking, setDataOfBooking] = useState({});
@@ -54,6 +55,7 @@ function Booking() {
 
       const responseData = await response.json();
       console.log("Stripe session created:", responseData);
+      showToast("Booking Successful", "success");
 
       if (responseData.url) {
         window.location.href = responseData.url; // Redirect to Stripe session URL

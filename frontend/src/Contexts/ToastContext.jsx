@@ -1,14 +1,15 @@
 import { react,createContext, useContext, useState } from "react";
-import {  toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-const ToastContext = createContext();
 
+
+const ToastContext = createContext();
 
 
 export const ToastProvider = ({ children }) => {
     const toastOptions = {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 2000,
         
     };
    const showToast = (message, type) => {

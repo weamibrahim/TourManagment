@@ -7,7 +7,9 @@ import { MdDelete } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
 import PageTransition from "../../../../Parts/Animation/PageTransition";
 import { useToken } from "../../../../../Contexts/TokenContext";
+import { useToast } from "../../../../../Contexts/ToastContext";
 function AllTour() {
+  const{showToast}=useToast()
   const [page, setPage] = useState(1);
   const [tours, setTours] = useState([]);
   const { accessToken } = useToken();
@@ -36,7 +38,9 @@ function AllTour() {
       },
     })
       .then((res) => res.json())
-      .then(() => {
+      .then((data) => {
+        
+        showToast(data.massage, "success");
         setTours(tours.filter((tour) => tour._id !== id));
       });
   };

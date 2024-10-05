@@ -4,7 +4,9 @@ import SideBar from "../../SideBar/SideBar";
 import { MdDelete } from "react-icons/md";
 import PageTransition from "../../../../Parts/Animation/PageTransition";
 import { useToken } from "../../../../../Contexts/TokenContext";
+import { useToast } from "../../../../../Contexts/ToastContext";
 function AllUser() {
+  const{showToast}=useToast()
   const [users, setUsers] = useState([]);
   const { accessToken } = useToken();
   useEffect(() => {
@@ -32,7 +34,8 @@ function AllUser() {
       },
     })
       .then((res) => res.json())
-      .then(() => {
+      .then((data) => {
+        showToast(data.message, "success");
         setUsers(users.filter((user) => user._id !== id));
       });
   };
