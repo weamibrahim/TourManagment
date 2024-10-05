@@ -31,7 +31,7 @@ function YourBooking() {
   }, []);
 
   return (
-    <div>
+    <div style={{ minHeight: "70vh" }}>
       {bookings.length === 0 ? (
         <div className="text-center my-5">
           <div class="spinner-border text-primary mx-2 fs-3" role="status">
