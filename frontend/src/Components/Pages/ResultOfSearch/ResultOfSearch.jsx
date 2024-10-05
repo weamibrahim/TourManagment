@@ -15,7 +15,7 @@ function ResultOfSearch() {
               <div className="card text-center ">
                 <img
                   src={
-                    "https://tour-managment-three.vercel.app/images/" +
+                    
                     tour.photo
                   }
                   className="card-img-top img-fluid"
