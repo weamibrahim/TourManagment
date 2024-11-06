@@ -53,13 +53,13 @@ function App() {
         
         {isAdmin?(
   <>
-          <Route path="/dashboard" element={loggedIn ? <Dashboard />: <Navigate to="/login" />} />
-          <Route path="/dashboard/tours" element={loggedIn ? <AllTour />: <Navigate to="/login" />} />
-          <Route path="/dashboard/tours/create" element={loggedIn ? <CreateTour />: <Navigate to="/login" />} />
-          <Route path="/dashboard/tours/update/:id" element={loggedIn ? <UpdateTour />: <Navigate to="/login" />} />
-          <Route path="/dashboard/reviews" element={loggedIn ? <AllReviews />: <Navigate to="/login" />} />
-          <Route path="/dashboard/users" element={loggedIn ? <AllUser />: <Navigate to="/login" />} />
-          <Route path="/dashboard/bookings" element={loggedIn ? <AllBooking />: <Navigate to="/login" />} />
+          <Route path="/dashboard" element={ <Dashboard />} />
+          <Route path="/dashboard/tours" element={ <AllTour />} />
+          <Route path="/dashboard/tours/create" element={ <CreateTour />} />
+          <Route path="/dashboard/tours/update/:id" element={ <UpdateTour />} />
+          <Route path="/dashboard/reviews" element={ <AllReviews />} />
+          <Route path="/dashboard/users" element={ <AllUser />} />
+          <Route path="/dashboard/bookings" element={ <AllBooking />} />
           
           </>
 ):(
