@@ -64,8 +64,7 @@ function CreateTour() {
   };
 
   return (
-    <div className="d-md-flex ">
-      <SideBar />
+   
       <form className="form m-auto my-4 ">
         <h1 className="text-center">Create Tour</h1>
         <div>
@@ -146,7 +145,7 @@ function CreateTour() {
           </button>
         </div>
       </form>
-    </div>
+
   );
 }
 

@@ -45,8 +45,7 @@ function AllTour() {
       });
   };
   return (
-    <div className="d-md-flex justify-content-around ">
-      <SideBar />
+   <>
       <Helmet>
         <title>All Tour</title>
       </Helmet>
@@ -120,7 +119,7 @@ function AllTour() {
           </button>
         </div>
       </div>
-    </div>
+  </>
   );
 }
 
